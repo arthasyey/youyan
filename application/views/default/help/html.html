@@ -1,0 +1,56 @@
+<{include file="./header.html"}>
+<style>
+#ckepop {
+    font-family: '微软雅黑',arial,'宋体',tahoma,sans-serif;
+}
+</style>
+<div class="toolbox">
+  <div class="toolboxleft" style=" width:690px;">
+    <div>
+      <div class="cmstitle f16"><{$cms.subject}>
+      <script>
+      	if(window.location.href == 'http://www.jiathis.com/help/html/jiathis-diy'){
+		document.write('<a href="<{$siteurl}>/customize" target="_blank"><img style="float:right; margin-right:15px; margin-top:10px;" src="<{$imgdir}>/zidingyi.jpg" /></a>');
+		}
+      </script>
+      </div>
+<!-- JiaThis Button BEGIN -->
+<div id="ckepop" style="padding:15px 0 15px 0">
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a class="jiathis_button_tools_5"></a>
+	<a href="http://www.jiathis.com/share/?uid=1" class="jiathis jiathis_txt jtico jtico_jiathis"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<!-- JiaThis Button END -->	 
+<div style="padding:15px 0 10px 0">
+	  <{if isset($seourl) && ($seourl == 'what-is-jiathis' || $seourl == 'standard-embed-code')}>
+	  	<{include file="./$seourl.html"}>
+	  <{else}>
+      <{$cms.content}>
+	  <{/if}>
+</div>
+    </div>
+  </div>
+  <div class="toolboxright" style="width:186px;">
+    <div class="mb20" style="border-bottom:1px dotted #666666;line-height:50px;"><a href="<{$siteurl}>/help/">&raquo;返回帮助目录</a></div>
+	
+<{foreach from=$directory item=item name=directory}>
+    <div class="<{if $cms.cid == $item.cid}>cms_nav_active<{else}>cms_nav<{/if}>" id="cms_menu_<{$item.cid}>" onclick="show_cms_menu('<{$item.cid}>');">
+		<h4><{$item.typename}></h4>
+	</div>
+    
+	<div class="cmslist<{if $cms.cid != $item.cid}> hide<{/if}>" id="cms_ul_<{$item.cid}>">
+      <ul>
+	  	<{foreach from=$item.cms item=cms_row name=cms_row}>
+        <li<{if $cms.seourl == $cms_row.seourl}> class="active"<{/if}>><a href="<{$siteurl}>/help/html/<{$cms_row.seourl}>" title="<{$cms_row.subject}>"><{$cms_row.shorttitle}></a></li>
+		<{/foreach}>
+      </ul>
+    </div>
+<{/foreach}>
+  </div>
+  <div class=" clear"></div>
+</div>
+<{include file="./footer.html"}>

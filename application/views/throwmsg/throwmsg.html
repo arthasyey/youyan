@@ -1,0 +1,44 @@
+<{if $showhead}>
+<{include file="../`$smarty.const.THEME`/header.html"}>
+<{else}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信息提示</title>
+</head>
+<body>
+<{/if}>
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/message.css" />
+
+<div id="Info">
+  <div class="<{$msgType}>_Info"> <strong>
+    <{$msgTilte}>
+    </strong>
+    <{if $msgTodo}>
+    <div class='Todo'>
+      <{$msgTodo}>
+    </div>
+    <{/if}>
+    <ul>
+      <{if $msgBody}>
+      <{foreach from=$msgBody name=name item=item}>
+      <li>
+        <{$item}>
+      </li>
+      <{/foreach}>
+      <{else}>
+      <span style="font-size:14px;">
+	  快速链接：
+	  <a href="<{$siteurl}>" style="font-size:14px;">友言首页</a>　
+	  <a href="<{$siteurl}>/getpwd" style="font-size:14px;">找回密码</a>　
+	  </span>
+      <{/if}>
+    </ul>
+  </div>
+</div>
+<{if $showfoot}>
+<{include file="../`$smarty.const.THEME`/footer.html"}>
+<{else}>
+</body></html>
+<{/if}>

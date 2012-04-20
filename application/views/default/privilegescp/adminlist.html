@@ -1,0 +1,88 @@
+<{include file="../admincp_header.html"}>
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/calendar-blue.css">
+<script src="<{$jsdir}>/calendar.js" type="text/javascript" language="javascript"></script>
+<script src="<{$jsdir}>/calendar-zh.js" type="text/javascript" language="javascript"></script>
+<script src="<{$jsdir}>/calendar-setup.js" type="text/javascript" language="javascript"></script>
+<script language="JavaScript" src="<{$jsdir}>/popup.js"></script>
+<script language="JavaScript" src="<{$jsdir}>/ajaxmenu.js"></script>
+<div class="title">
+管理员列表
+</div>
+<div class="search">
+  <form action="" method="get">
+    <table width="100%" border="0" cellpadding="0" cellspacing="10">
+	<tr>
+        <td>
+		  添加时间：
+          <input readonly="true" name="stime" id="stime" class="input_text calendar" type="text" size="15" value="<{$search.stime}>" />
+		  到
+		  <input readonly="true" name="etime" id="etime" class="input_text calendar" type="text" size="15" value="<{$search.etime}>" /> 
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+		  登录名：
+          <input name="adminname" type="text" class="input_text" size="15" value="<{$search.adminname}>" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+		  管理员ID：
+          <input name="adminid" type="text" class="input_text" size="15" value="<{$search.adminid}>" />
+		   &nbsp;&nbsp;
+		  <input type="submit" value="查　询" class="button80" />
+	    </td>
+      </tr>
+    </table>
+  </form>
+<script language="Javascript">
+	 Calendar.setup({
+		inputField     :    "stime",
+		ifFormat       :    "%Y-%m-%d",
+		showsTime      :    false,
+		timeFormat     :    "24"
+	});
+	 Calendar.setup({
+		inputField     :    "etime",
+		ifFormat       :    "%Y-%m-%d",
+		showsTime      :    false,
+		timeFormat     :    "24"
+	});
+</script>  
+</div>
+<div class="table_div">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+    <thead>
+      <tr>
+        <th width="8%">管理员ID</th>
+        <th width="15%">登录名</th>
+        <th width="15%">真实姓名</th>
+        <th width="15%">添加时间</th>
+        <th width="15%">状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    <{foreach from=$list item=item name=list}>
+    <tr id="tr_<{$item.adminid}>" class="<{if $smarty.foreach.list.iteration % 2 == 0}>tr1<{/if}>">
+    <td><{$item.adminid}></td>
+      <td><{$item.adminname}></td>
+      <td><{$item.realname}></td>
+      <td><{$item.adddate}></td>
+      <td><{if $item.status == 1}>正常<{else}>禁止<{/if}></td>
+      <td>
+	  <a href="<{$siteurl}>/privilegescp/edit/<{$item.adminid}>">修改权限</a> | 
+	  <a href="<{$siteurl}>/privilegescp/editadmin/<{$item.adminid}>">修改资料</a>
+	  </td>
+    </tr>
+    <{foreachelse}>
+    <tr>
+      <td colspan="6">暂无记录</td>
+    </tr>
+    <{/foreach}>
+    </tbody>
+    
+    <tfoot>
+    </tfoot>
+  </table>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table_page">
+    <tr>
+      <td align="right"><{$page}></td>
+    </tr>
+  </table>
+</div>
+<{include file="../admincp_footer.html"}> 

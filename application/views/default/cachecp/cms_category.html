@@ -1,0 +1,35 @@
+<{include file="../admincp_header.html"}>
+
+<div class="title">
+更新内容分类缓存
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+</div>
+
+<form method="post" action="">
+<div id="pop_content" class="pop_content">
+    <div class="dialog_content">
+      <div class="dialog_body">
+       如果对内容的分类进行了增加、修改或删除操作，缓存没有及时更新，可以在这里手动更新，确定更新内容分类的缓存吗？
+      </div>
+      <div class="dialog_buttons clearfix">
+        <label class="uiButton uiButtonLarge uiButtonConfirm"> 
+		<input type="submit" name="cms_category_cache_submit_btn" id="cms_category_cache_submit_btn" value="确定" class="rb1-12" onmouseover="this.className='rb2-12';" onmouseout="this.className='rb1-12';" />
+		</label>
+
+        <label class="uiButton uiButtonLarge uiButtonDefault">
+        <input type="button" onclick="window.location.href='<{$siteurl}>/cachecp/';" name="cancel" value="返回">
+        </label>
+        </div>
+    </div>
+  </div>
+<input type="hidden" name="cms_category_cache_submit" value="1" />
+<input type="hidden" name="formhash" value="<{formhash()}>" />
+</form>
+<{include file="../admincp_footer.html"}> 

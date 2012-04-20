@@ -1,0 +1,181 @@
+<{if !$inajax}>
+<div class="footer">
+	<div class="footer_bottom">
+		<div class="bottomLeftCopyright">© 2011-2012 All Rights Reserved.</div>
+		<div class="bottomRightFunction"><span> 浙ICP备11043769号-1</span><a>法律条款</a><a onclick="boxAbout.show();">关于我们</a><a target="_blank" style="margin-top: -3px;" href="http://wpa.qq.com/msgrd?v=3&uin=1735067958&site=qq&menu=yes"><img src="<{$imgpath}>/uyan/qqkefu_b.png" alt="在线帮助"  /></a>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript" src="<{$siteurl}>/userticket"></script>
+<table cellspacing="0" cellpadding="0" border="0" class="boxy-wrapper fixed" style="z-index: 15337; visibility: visible; left: 422.5px; top: 188px; opacity: 1;display: none;">
+	<tbody>
+		<tr>
+			<td class="top-left"></td>
+			<td class="top"></td>
+			<td class="top-right"></td>
+		</tr>
+		<tr>
+			<td class="left"></td>
+			<td class="boxy-inner"><div id="loginPane"
+					style="display: block;" class="boxy-content"> <a id="closediag" href="#" class="close"></a>
+					<div class="loginTitlePane"> 登录友言<span id="alertLogin"></span> </div>
+					<div class="loginAfterPane">
+						<form class="outlineLogin" id="loginForm"
+							action="javascript:submitLogin(''<{if $info }>,'<{$info}>'<{/if}>)">
+							<div class="loginItemWrapper">
+								<div class="loginItemTitle">Email</div>
+								<input type="text" id="loginEmail" name="loginEmail"
+									class="inputStyle">
+								<div class="clear"></div>
+							</div>
+							<div class="loginItemWrapper">
+								<div class="loginItemTitle">登录密码</div>
+								<input type="password" id="loginPassword" name="loginPassword"
+									class="inputStyle">
+								<div class="clear"></div>
+							</div>
+							<div class="bottomLoginWrapper">
+								<input type="checkbox" id="checkReme" name="checkReme">
+								<div class="checkRemeIntro">记住我</div><div class="checkRemeIntro" style="margin-left:10px;"><a href="<{$siteurl}>/getpwd">忘记密码</a></div>
+								<input type="submit" value="登录" class="loginBTNPane">
+								<div class="clear"></div>
+							</div>
+							<input type="hidden" value="<{$clickType}>" id="clickType" name="clicktype">
+						</form>
+					</div>
+				</div></td>
+			<td class="right"></td>
+		</tr>
+		<tr>
+			<td class="bottom-left"></td>
+			<td class="bottom"></td>
+			<td class="bottom-right"></td>
+		</tr>
+	</tbody>
+</table>
+<table style="display: none; z-index: 15339; visibility: visible; left: 465.5px; top: 151.5px;" class="boxy-wrapper fixed" border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td class="top-left"></td>
+			<td class="top"></td>
+			<td class="top-right"></td>
+		</tr>
+		<tr>
+			<td class="left"></td>
+			<td class="boxy-inner"><div class="boxy-content" style="display: block;" id="aboutUsPane"> <a class="close" href="#" id="closediag"></a>
+					<div class="loginTitlePane">关于友言<span id="alertLogin"></span></div>
+					<div class="loginAfterPane">
+						<h3>官方新浪微博 <a href="http://weibo.com/uyancc" class="introSelfLink" target="_blank">http://weibo.com/uyancc</a></h3>
+						<h3>腾讯微博 <a href="http://t.qq.com/uyan_cc" class="introSelfLink" target="_blank">http://t.qq.com/uyan_cc</a></h3>
+						<h3>网易微博 <a href="http://t.163.com/8939136856" class="introSelfLink" target="_blank">http://t.163.com/8939136856</a></h3>
+						<h3>新浪博客 <a href="http://blog.sina.com.cn/u/2325396472" class="introSelfLink" target="_blank">http://blog.sina.com.cn/u/2325396472</a></h3>
+						<h3>搜狐博客 <a href="http://uyannet.blog.sohu.com/" class="introSelfLink" target="_blank">http://uyannet.blog.sohu.com</a></h3>
+						<h3>客服邮箱 <a href="mailto:help@uyan.cc" class="introSelfLink" target="_blank">help@uyan.cc</a></h3>
+					</div>
+				</div></td>
+			<td class="right"></td>
+		</tr>
+		<tr>
+			<td class="bottom-left"></td>
+			<td class="bottom"></td>
+			<td class="bottom-right"></td>
+		</tr>
+	</tbody>
+</table>
+<script type="text/javascript" src="/js/jquery.boxy.js"></script>
+<script type="text/javascript">
+$("#loginPane").ready
+  (
+    function()
+    {
+      boxLogin=new Boxy($("#loginPane"), {
+        modal: false,
+          show: false
+      });
+    }
+);
+$("#signupPane").ready
+  (
+    function()
+    {
+      boxSignup=new Boxy($("#signupPane"), {
+        modal: false,
+          show: false
+      });
+    }
+);
+$("#aboutUsPane").ready
+  (
+    function()
+    {
+      boxAbout=new Boxy($("#aboutUsPane"), {
+        modal: false,
+          show: false
+      });
+    }
+);
+
+function submitLogin(type, info){
+  if(type == null) type = '';
+  if(info == null) info = '';
+  var email = $("#loginEmail" + type).val();
+  var loginPassword = $("#loginPassword" + type).val();
+  var clickType = $("#clickType" + type).val();
+  if($("#checkReme" + type).attr("checked")){
+    var rem = 1;
+  }else{
+    var rem = 0;
+  }
+  var state =  email.match(/^[\w][\w+\.\_]*@\w+(\.\w+)*\.[A-z]{2,}$/g);
+  $("#alertLogin" + type).html("");
+  if(state && loginPassword!=''){
+    $.post(
+      "/index.php/youyan_login/userLogin",
+      {
+        email: email,
+        loginPassword:loginPassword,
+        rem:rem
+      },
+      function(data){
+        if(data=='noData'){
+          $("#alertLogin" + type).html("您输入的邮箱或密码有误");
+        }else if(clickType == ''){
+        	boxLogin.hide();
+			data = data.replace(/\"/g,"");
+            $("#_uyan_utk").html('<a href="javascript:;" onclick="userLogout();">( 退出 )</a><a>'+data+'</a>');
+            $("#admin_optid").attr('href', '/index.php/youyan_admin_pre/index');
+            $("#admin_optid").attr('onclick', '');
+        }else if(clickType == 'admin'){
+        	location.href="<{$siteurl}>/index.php/youyan_admin_pre/index";
+        }else if(clickType == 'getcode'){
+        	location.href="<{$siteurl}>/getcode/"+info;
+        }else if(type != ''){
+        	location.href="<{$siteurl}>/getcode";
+        }else{
+        	location.href="<{$siteurl}>/getcode";
+        }
+      });
+  }else{
+    $("#alertLogin" + type).html("请输入格式正确的邮箱及密码");
+    $(".loginBTNPane").html("登录");
+  }
+}
+</script>
+<div style="display:none">
+	<script src="http://s96.cnzz.com/stat.php?id=3762260&web_id=3762260" language="JavaScript"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-10046963-7']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</div>
+</body>
+</html>
+<{/if}>

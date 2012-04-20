@@ -1,0 +1,765 @@
+.header {
+    background: none repeat scroll 0 0 #109DB6;
+    border-bottom: 1px solid #C1F1F9;
+    height: 28px;
+    width: 100%;
+}
+.header_top {
+    margin: 0 auto;
+    width: 980px;
+}
+.header_top a {
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-size: 12px;
+    line-height: 28px;
+    margin: 0 6px;
+    text-decoration: none;
+}
+
+.radial {
+    background-color: #3EBDD4;
+}
+.topWrapper {
+    height: 60px;
+}
+.topContainer {
+    margin: 0 auto;
+    width: 980px;
+}
+a.logo {
+    background: url("../images/uyan/logo.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 41px;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    width: 162px;
+}
+.introLogoPane {
+    color: #FFFFFF;
+    float: left;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 15px;
+    margin: 19px 0 0 10px;
+    padding-left: 20px;
+}
+.loginWrapper {
+    float: right;
+    margin-top: 14px;
+    width: 276px;
+}
+.loginWrapper a {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+.loginWrapper a:hover {
+    background: none repeat scroll 0 0 #109DB6;
+    border-radius: 3px 3px 3px 3px;
+}
+.loginWrapper span.jiao {
+    font-size: 12px;
+    padding-left: 3px;
+}
+.menuSelected {
+    background: none repeat scroll 0 0 #109DB6;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.morebutton {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: -moz-use-text-color #109DB6 #109DB6;
+    border-right: 1px solid #109DB6;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    color: #7F7F7F;
+    overflow: hidden;
+    position: absolute;
+    width: 88px;
+    z-index: 1111;
+}
+.morebutton li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #7F7F7F;
+    display: block;
+    height: 30px;
+    padding: 1px;
+    text-align: center;
+}
+.morebutton li a {
+    color: #7F7F7F !important;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.morebutton li a:hover {
+    background: none repeat scroll 0 0 #ACACAC;
+    border-radius: 0 0 0 0;
+    color: #FFFFFF !important;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.footer {
+    background: url("../images/uyan/bottomTopLine.png") repeat-x scroll 0 0 #5C5C5C;
+    height: 96px;
+    padding-top: 20px;
+}
+.footer_bottom {
+    margin: 0 auto;
+    width: 980px;
+}
+.bottomLeftCopyright {
+    color: #EAEBEB;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    padding: 17px 0 0 20px;
+    text-shadow: 0 -1px 0 #333333;
+}
+.bottomRightFunction {
+    float: right;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    padding: 20px 0 0 20px;
+    width: 420px;
+}
+.bottomRightFunction span {
+    color: #EAEBEB;
+    display: block;
+    float: right;
+    margin-right: 20px;
+    text-shadow: 0 -1px 0 #333333;
+}
+.bottomRightFunction a {
+    color: #EAEBEB;
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin-right: 20px;
+    text-shadow: 0 -1px 0 #333333;
+}
+
+/* 登录 */
+#loginPane {
+    display: none;
+    height: 192px;
+    position: relative;
+    width: 415px;
+}
+.loginTitlePane {
+    border-bottom: 1px solid #C9C9C9;
+    color: #393939;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 15px;
+    font-weight: bold;
+    height: 29px;
+    margin-bottom: 1px;
+    padding-left: 36px;
+}
+.loginItemWrapper {
+    padding: 15px 0 0;
+}
+.loginItemTitle {
+    color: #3E3E3E;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    padding-right: 15px;
+    padding-top: 8px;
+    text-align: right;
+    width: 97px;
+}
+#loginEmail {
+    color: #333333;
+    float: left;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+.inputStyle {
+    border: 1px solid #80A1C1;
+    color: #687793;
+    float: left;
+    height: 25px;
+    padding: 2px 8px;
+    width: 234px;
+}
+.bottomLoginWrapper {
+    padding: 10px 50px 0 112px;
+}
+#checkReme {
+    display: block;
+    float: left;
+    margin: 7px 0 0;
+    padding: 0;
+}
+.checkRemeIntro {
+    color: #3E3E3E;
+    float: left;
+    font-size: 12px;
+    margin-left: 4px;
+    margin-top: 7px;
+}
+.loginBTNPane {
+    background-color: #8BAD50;
+    border: 1px solid #799E3C;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 13px;
+    padding: 5px 20px 2px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*文章页左边菜单*/
+.sidebar{ width:230px; float:left; padding-top:0px;}
+.sidebar_nav{ padding:0 20px;}
+.sidebar_nav ul li{ display:block; list-style:none; width:160px; background:#dfdfdf;border-radius:3px; padding:0 12px; margin-top:12px; line-height:30px; height:30px; overflow:hidden;}
+.sidebar_nav ul li a{ font-size:14px; font-family:"微软雅黑"; color:#252525; float:left; display:block; text-decoration:none;}
+.sidebar_nav ul li .btn{ width:12px; height:12px; display:block; float:right;}
+.sidebar_nav ul li .btn a{display:block; width:12px; height:12px; margin-top:9px;}
+.sidebar_nav ul li .txt{ float:left; display:block; width:130px;}
+.sidebar_nav ul li.show{ background: url("../images/uyan/Reduce_btn.png") no-repeat scroll 158px center #a2a2a2; cursor:pointer;}
+.sidebar_nav ul li.hide{ background: url("../images/uyan/Plus_btn.png") no-repeat scroll 158px center #DFDFDF; cursor:pointer;}
+.sidebar_nav ul li.show a{ color:#fff;}
+.sidebar_nav ul li.show_a{ background:none; border-bottom:1px solid #C9C9C9; margin:0;}
+.sidebar_nav ul li.show_a a:hover{ color:#109DB6;}
+.main_content{width:700px; font-size:12px;  float:right; overflow:hidden; border-left:1px solid #C9C9C9; padding:0 24px;}
+.main_title{ font-size:16px; font-weight:bold; padding:10px; color:#333;}
+.p_definition{ font-size:14px; color:#333; line-height:26px; display:block; float:left; width:660px;}
+.main_content .sum{ background:url(../images/help/numberIcon.png) no-repeat; width:25px; height:25px; display:block; float:left; margin-right:10px; text-align:center; line-height:24px; color:#666; font-size:16px; font-weight:bold;}
+.main_content p{ display:block;}
+.main_content p img{ display:block; float:left; padding-left:28px;}
+
+.registration_txt {
+    height: 40px;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+.registration_txt a {
+    color: #333333;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.registration_txt .arrow {
+    display: block;
+    float: left;
+    margin-top: 13px;
+    padding: 0 35px;
+}
+.line {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #C9C9C9;
+    height: 1px;
+    overflow: hidden;
+}
+.registration_box {
+    border: 1px solid #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    margin: 0 10px;
+    padding: 15px;
+}
+.installation {
+    padding: 0 12px 12px;
+}
+.navigationInstall {
+    padding: 10px 0px;
+}
+.Platform {
+    float: left;
+    padding-top: 4px;
+}
+.registration_box .p5 {
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding-right: 6px;
+}
+.registration_box .txt5 {
+    background: none repeat scroll 0 0 #F9F8F8;
+    border: 1px solid #C9C9C9;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 8px;
+    width: 200px;
+}
+.registration_box .txt5 {
+    font-size: 14px;
+    line-height: 26px;
+}
+.navigationInstall_btn {
+    background: url("../images/uyan/goToManageBTN.png") no-repeat scroll 0 0 transparent;
+    color: #523B20;
+    float: right;
+    font-family: Simsun;
+    font-size: 16px;
+    height: 28px;
+    margin-bottom: 5px;
+    padding-top: 9px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px #FBEABE;
+    width: 181px;
+}
+.navigationInstall_btn a {
+    color: #523B20;
+    text-decoration: none;
+}
+.introductionTitle {
+    color: #019ED8;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+	padding-bottom: 5px;
+}
+#showCodePane {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.codePaneWindow {
+    background: url("../images/uyan/designPaneBottom.png") no-repeat scroll left bottom transparent;
+    padding-bottom: 8px;
+    width: 618px;
+}
+.designPaneTop {
+    background: url("../images/uyan/designPaneTop.png") no-repeat scroll 0 0 transparent;
+    height: 8px;
+    overflow: hidden;
+    width: 618px;
+}
+.designPaneMid {
+    background: url("../images/uyan/designPaneMid.png") repeat-y scroll 0 0 transparent;
+    min-height: 100px;
+    padding: 5px 10px;
+    position: relative;
+    width: 598px;
+}
+.getCodePane {
+    border: medium none #FFFFFF;
+    font-size: 11px;
+    min-height: 110px;
+    overflow: auto;
+    position: relative;
+    resize: none;
+    width: 600px;
+}
+.designPaneMid div.designPaneCodeArrow {
+    background: url("../images/uyan/arrowDownTop.png") no-repeat scroll 220px 0 transparent;
+    height: 38px;
+    left: 300px;
+    position: absolute;
+    top: -10px;
+    width: 86px;
+    z-index: 3000000;
+}
+.introductionContent {
+    font-size: 14px;
+    line-height: 26px;
+}
+.introCodeWrapper {
+    background-color: #FFFFFF;
+    border: 1px solid #85AEC1;
+    color: #242424;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    height: 35px;
+    line-height: 17px;
+    margin-top: 10px;
+    padding: 5px;
+    position: relative;
+}
+.lineF {
+    margin-bottom: 5px;
+}
+
+.headline{ font-size:24px; color:#333;}
+.headline p{ margin:15px; _	margin:15px; line-height:36px; height:36px; padding-bottom:10px; _margin-top:6px; overflow:hidden; display:block; padding-left:15px; border-bottom:1px solid #C9C9C9; font-size:18px; font-weight:bold;}
+
+/* 登录关于我们 */
+.boxy-wrapper.fixed {
+    position: fixed;
+}
+.boxy-wrapper {
+    empty-cells: show;
+	position: absolute;
+}
+.boxy-wrapper .top-left {
+    background: url("../images/common/boxy-nw.png") repeat scroll 0 0 transparent;
+}
+.boxy-wrapper .top-left, .boxy-wrapper .top-right, .boxy-wrapper .bottom-right, .boxy-wrapper .bottom-left {
+    height: 10px;
+    padding: 0;
+    width: 10px;
+}
+.boxy-wrapper .top, .boxy-wrapper .bottom {
+    background-color: black;
+    height: 10px;
+    opacity: 0.6;
+    padding: 0;
+}
+.boxy-wrapper .top-right {
+    background: url("../images/common/boxy-ne.png") repeat scroll 0 0 transparent;
+}
+.boxy-wrapper .left, .boxy-wrapper .right {
+    background-color: black;
+    opacity: 0.6;
+    padding: 0;
+    width: 10px;
+}
+.boxy-inner {
+    background-color: white;
+    padding: 0;
+}
+#loginPane {
+    display: none;
+    height: 192px;
+    position: relative;
+    width: 415px;
+}
+.boxy-content {
+    padding: 0;
+}
+#closediag, #closediagSpam {
+    background: url("../images/common/closeDialog.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 31px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 31px;
+    z-index: 100000;
+}
+.loginTitlePane {
+    background-color: #E3EEF2;
+    border-bottom: 1px solid #C9C9C9;
+    color: #393939;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 15px;
+    font-weight: bold;
+    height: 29px;
+    margin-bottom: 1px;
+    padding-left: 36px;
+    padding-top: 15px;
+}
+#alertLogin {
+	color:#FF9900;
+    font-size: 13px;
+    font-weight: normal;
+    margin-left: 15px;
+}
+.loginItemWrapper {
+    padding: 15px 0 0;
+}
+.loginItemTitle {
+    color: #3E3E3E;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    padding-right: 15px;
+    padding-top: 8px;
+    text-align: right;
+    width: 97px;
+}
+#loginEmail {
+    color: #333333;
+    float: left;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+.inputStyle {
+    border: 1px solid #80A1C1;
+    color: #687793;
+    float: left;
+    height: 25px;
+    padding: 2px 8px;
+    width: 234px;
+}
+img, ul, li, p, form, input {
+    margin: 0;
+    padding: 0;
+}
+.bottomLoginWrapper {
+    padding: 10px 50px 0 112px;
+}
+#checkReme {
+    display: block;
+    float: left;
+    margin: 7px 0 0;
+    padding: 0;
+}
+.checkRemeIntro {
+    color: #3E3E3E;
+    float: left;
+    font-size: 12px;
+    margin-left: 4px;
+    margin-top: 7px;
+}
+.loginBTNPane {
+    background-color: #8BAD50;
+    border: 1px solid #799E3C;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 13px;
+    padding: 5px 20px 2px;
+    text-align: center;
+    text-decoration: none;
+}
+.boxy-wrapper .bottom-left {
+    background: url("/resource/images/common/boxy-sw.png") repeat scroll 0 0 transparent;
+}
+.boxy-wrapper .bottom-right {
+    background: url("/resource/images/common/boxy-se.png") repeat scroll 0 0 transparent;
+}
+#aboutUsPane {
+    display: none;
+    height: 218px;
+    position: relative;
+    width: 415px;
+}
+.loginAfterPane h3 {
+    color: #333333;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 14px;
+    padding: 6px 0 0 37px;
+}
+/* 注册 */
+.registration_txt {
+    height: 40px;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+.registration_txt a {
+    color: #333333;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.registration_txt .arrow {
+    display: block;
+    float: left;
+    margin-top: 13px;
+    padding: 0 35px;
+}
+.registration_box {
+    border: 1px solid #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    margin: 0 10px;
+    padding: 15px;
+}
+.content_title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.registration_content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    padding: 6px 16px 16px;
+    width: 610px;
+}
+.line {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #C9C9C9;
+    height: 1px;
+    overflow: hidden;
+}
+.registration_content_row {
+    display: block;
+    height: 34px;
+    margin: 36px 0;
+}
+.registration_box .p1 {
+    display: block;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    padding-right: 6px;
+    text-align: right;
+}
+.registration_box .p5 {
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding-right: 6px;
+}
+.registration_box input {
+    border: 0 none;
+    font-family: "微软雅黑";
+    margin: 0;
+    padding: 0;
+}
+.registration_box .txt2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C9C9C9;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 8px;
+    width: 300px;
+}
+.registration_box .txt3 {
+    background: none repeat scroll 0 0 #F9F8F8;
+    border: 1px solid #C9C9C9;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 18px;
+    height: 34px;
+    line-height: 34px;
+    margin: 18px 0 0;
+    padding-left: 8px;
+    width: 220px;
+}
+.registration_box .txt2:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #44C9E1;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 18px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 7px;
+    width: 299px;
+}
+.registration_box .txt3:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #44C9E1;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 18px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 7px;
+    width: 219px;
+}
+.registration_box .txt5 {
+    background: none repeat scroll 0 0 #F9F8F8;
+    border: 1px solid #C9C9C9;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 8px;
+    width: 200px;
+}
+.registration_box .remarks {
+    float: left;
+    height: 30px;
+    margin-top: 3px;
+    overflow: hidden;
+    padding-left: 4px;
+}
+.registration_box .remarks .remarks_img {
+    display: block;
+    float: left;
+    height: 13px;
+    margin-top: 8px;
+    width: 7px;
+}
+.registration_box .remarks .txt {
+    background: none repeat scroll 0 0 #7F7F7F;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+}
+.registration_box .p3 {
+    display: block;
+    float: right;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 34px;
+    padding-right: 84px;
+}
+.registration_box .p4 {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 10px;
+    padding-left: 6px;
+}
+.registration_box .p_btn {
+    display: block;
+    height: 37px;
+    margin: 20px 0 5px;
+    padding-left: 10px;
+}
+.registration_box_btn {
+    background: url("../images/login/provideURLBTN.png") no-repeat scroll 0 0 transparent;
+    color: #406A3B;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 16px;
+    height: 37px;
+    padding: 9px 0 0;
+    text-align: center;
+    text-shadow: 0 1px #EAF8C6;
+    width: 91px;
+}
+.registration_box .p_btn a {
+    display: block;
+    float: left;
+    height: 37px;
+    line-height: 45px;
+    margin-left: 12px;
+    overflow: hidden;
+}

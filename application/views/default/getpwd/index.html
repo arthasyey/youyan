@@ -1,0 +1,23 @@
+<{include file="../header.html"}>
+<div class="main">
+	<div class="headline">
+		<p>找回密码</p>
+	</div>
+	<div class="registration_box" style="margin-bottom:200px;">
+		<div class="registration_content" style="width:750px;">
+			<div class="registration_content_row" style="margin-top:-10px;">
+				<p class="p1">邮箱：</p>
+				<input class="txt2" name="signupOutEmail" id="signupOutEmailMain" onblur="checkOutEmail('Main')" type="text"><span class="hide" id="submitbtnmsg" style="line-height:35px; padding-left:10px;"><img border="0" align="absmiddle" src="<{$siteurl}>/resource/images/common/ico_pending.gif" />正在验证邮箱地址并发送找回密码邮件，请稍后...</span>
+			</div>
+			<div class="clear"></div>
+			<p class="p_btn">
+				<input type="button" id="signupOutBTNMain" onclick="resetPass()" class="registration_box_btn" value="找回密码">
+				<a class="backLink" href="/">返回</a> </p>
+			<p></p>
+			<div class="clear"></div>
+		</div>
+		<div class="login_content"> </div>
+		<div class="clear"></div>
+	</div>
+</div>
+<{include file="../footer.html"}> 

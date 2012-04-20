@@ -1,0 +1,76 @@
+<{include file="../admincp_header.html"}>
+<script type="text/javascript">
+
+function checkPrivileges(a, b){	
+	var c = document.getElementsByName("privileges["+a+"][]");
+	var checkd = b=='on' ? true : false;
+	for (var i=0; i<c.length; i++){
+		c[i].checked = checkd;
+	}
+}
+
+function checkALLPrivileges(b){	
+	<{foreach from=$classmenu item=item name=classmenu}>
+	checkPrivileges('<{$item}>', b);
+	<{/foreach}>
+}
+
+</script>
+
+
+
+<div class="title">
+修改管理员 <{$adminer.adminname}> (<{$adminer.realname}>) 的权限
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+
+<form method="post" action="" onsubmit="return form_submit();">
+  <div class="table_div">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+      <tbody>
+	  	 <tr class="tr1">
+          <td width="22%" height="35" align="right"><p class="b">管理员ID：</p></td>
+          <td colspan="2" align="left"><{$adminer.adminid}></td>
+        </tr>
+        <tr>
+          <td height="35" align="right"><p class="b">管理员登录名：</p></td>
+          <td colspan="2" align="left"><{$adminer.adminname}> (<{$adminer.realname}>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+   <div class="table_div">
+   <div class="title" style="margin-bottom:10px;">全局权限&nbsp;&nbsp;
+   (<a href="javascript:;" onclick="checkALLPrivileges('on');">全选</a> / <a href="javascript:;" onclick="checkALLPrivileges('off');">反选</a>)</div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+      <tbody>
+        <{foreach from=$privilegesmenu item=item name=privilegesmenu}>
+        <tr class="<{if $smarty.foreach.privilegesmenu.iteration % 2 == 0}>tr1<{/if}>">
+          <td width="22%" height="35" align="right"><p class="b"><{$item.menuhtml}>：</p></td>
+          <td colspan="2" align="left">
+		  <{$item.checkhtml}>
+		  </td>
+        </tr>
+		<{/foreach}>
+		
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="table_div align_c">
+    <input type="submit" id="SubmitBtn" value="确 定" class="button100" />
+	<input type="button" value="返 回" class="button100" onclick="window.location.href='<{$siteurl}>/privilegescp/'" />
+    <input type="hidden" name="formhash" value="<{formhash()}>" />
+    <input type="hidden" name="dosubmit" value="1" />
+  </div>
+</form>
+<{include file="../admincp_footer.html"}> 

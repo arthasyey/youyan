@@ -1,0 +1,69 @@
+<{include file="../admincp_header.html"}>
+<style>
+body{background:#F9F9F9;}
+#login h1{text-align:center;margin:100px auto 20px;font-size:30px;text-shadow:1px 1px #fff;font-weight:normal;}
+#login_box{background:#fff;border:1px solid #ccc;display:block;width:310px;margin:0 auto;-moz-border-radius:10px;-webkit-border-radius:10px;padding:10px 30px 30px 30px;color:#333;}
+#login_box p{margin-top:10px;font-size:14px; font-weight:bold}
+#login_box input.input_text{width:300px;height:30px;line-height:30px;font-size:14px;border:1px solid #ccc;}
+#login_box input.input_focus{background:#FFF8CC;border:1px solid #EDA63E;}
+#login_box #autoLogin{color:#333;margin-top:10px;display:block;float:left;}
+#loginButton{float:right;padding:5px 10px;display:block;font-size:16px;line-height:auto;height:auto;}
+#verification img{border:1px solid #ccc;background:#ccc;width:70px;height:30px;display:block;float:left;}
+#verification a{float:left;display:block;padding-left:10px;line-height:30px;}
+</style>
+
+<script language="javascript">
+	window.onload = function (){
+		refreshCode('<{$sessionid}>');
+		G("adminname").onfocus = function() { fieldfocus("adminname");}
+		G("adminname").onblur = function() { fieldblur("adminname");}
+		
+		G("password").onfocus = function() { fieldfocus("password");}
+		G("password").onblur = function() { fieldblur("password");}
+		
+		G("seccode").onfocus = function() { fieldfocus("seccode");}
+		G("seccode").onblur = function() { fieldblur("seccode");}
+		
+		G("adminname").focus(); 
+	}
+
+	function fieldfocus(id){
+		G(id).className = "input_text input_focus";
+	}
+
+	function fieldblur(id){
+		G(id).className = "input_text";
+	}
+
+	function refreshCode(sessionID){
+		var imgObject = G("seccode_img");
+		imgObject.src = 'http://a.jiathis.com/s/seccode.php?sessionID='+sessionID+'&r='+Math.random();
+		imgObject.style.display = '';
+	}
+</script>
+
+<div id="login">
+  <h1 id="logo">友言管理平台</h1>
+  <div id="login_box">
+    <form method="post" action="" onsubmit="return form_submit();">
+      <{if !empty($errorinfo)}>
+      <div class="red_prompt"><{foreach from=$errorinfo item=item name=errorinfo}>
+        <{$item}><br />
+        <{/foreach}> </div>
+      <{/if}>
+      <p>用户名：</p>
+      <input type="text" class="input_text" id="adminname" name="adminname" value="<{if isset($smarty.post.adminname)}><{$smarty.post.adminname}><{/if}>" tabindex="1" />
+      <p>密　码：</p>
+      <input type="password" class="input_text" id="password" name="password" value="<{if isset($smarty.post.password)}><{$smarty.post.password}><{/if}>" tabindex="2" />
+      <p>验证码：</p>
+      <input type="text" class="input_text" id="seccode" name="seccode" style="width:100px;" maxlength="4" tabindex="3" />
+      <img align="absmiddle" id="seccode_img" class="code-img" style="cursor:pointer;" onclick="refreshCode('<{$sessionid}>');" /> <a href="javascript:;" onclick="refreshCode('<{$sessionid}>');" style="font-size:12px;">看不清?换张图片</a>
+      <div class="clearfix mt10">
+        <input type="submit" id="SubmitBtn" value="登 录" class="button100" tabindex="4" />
+      </div>
+      <input type="hidden" name="formhash" value="<{formhash()}>" />
+	  <input type="hidden" name="loginsubmit" value="1" />
+    </form>
+  </div>
+</div>
+<{include file="../admincp_footer.html"}>

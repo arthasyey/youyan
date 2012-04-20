@@ -1,0 +1,164 @@
+.ts4 { padding: 10px 15px; }
+.ts42 { text-align: center; padding: 5px; }
+.ts45 { border-top: 1px solid rgb(216, 223, 234); /*border-bottom: 1px solid rgb(216, 223, 234);*/ padding: 10px 0pt 5px; margin: 10px 0pt; }
+.l { float: left; }
+.r { float: right; clear: right; }
+.c { clear: both; }
+.l50_s { width: 68px; height: 55px; overflow: hidden; padding-top: 2px; margin: 0pt 5px 5px 0pt; text-align: center; background: url("./images/l50_bg_s.png") no-repeat scroll 0% 0% transparent;}
+.l65_85s { width: 73px; height: 93px; overflow: hidden; padding-top: 4px; margin: 0pt 5px 5px 0pt; text-align: center; background: url("./images/65_85_bg_s.gif") no-repeat scroll 0% 0% transparent;}
+.ml10 { margin-left: 10px; }
+.mb5 { margin-bottom: 5px; }
+.it_s { display: table; border: 1px solid rgb(128, 128, 128); }
+.it1, .it2 { background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); color: rgb(51, 51, 51); }
+.it2 { border-left: 1px solid rgb(0, 0, 0); border-top: 1px solid rgb(0, 0, 0); color: rgb(51, 51, 51); }
+.it3 { background: url("./images/ccts_bg.gif") repeat-x scroll center bottom rgb(255, 255, 255); border: 1px solid rgb(221, 120, 112); color: rgb(51, 51, 51); }
+
+.flw5 { float: left; width: 5px; }
+.gbs1 {float: left; }
+.rbs1 {float: left; }
+
+.rb1-12, .rb2-12 {display:block;height:22px;border:1px solid #2B4680;background:#5972A8 url(./images/button_blue.jpg);line-height:20px;padding:0 8px;font-weight:bold;text-align:center;color:#fff;}
+.gb1-12, .gb2-12 {display:block;height:22px;border:1px solid #888;background:#E4E4E4 url(./images/button_gray.jpg);line-height:20px;padding:0 8px;font-weight:bold;text-align:center;color:#333;}
+
+
+/*****************new css*****************/
+
+.pop_squarecontainer{position:relative;overflow:hidden;zoom:1;padding:10px}
+.pop_squareborder{margin:-10px 0 0 -10px;position:absolute;width:1000px;height:1000px}
+.pop_container_advanced{background:rgba(82,82,82,0.7);padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.pop_borderopacity{background:#525252;filter:alpha(opacity=70);opacity:.7}
+.pop_content_old{position:relative;*margin-left:-10px;*padding-left:10px}
+.pop_container{direction:ltr;position:relative;margin:0 10px}
+.pop_topleft, .pop_topright, .pop_bottomleft, .pop_bottomright{height:10px;width:10px;overflow:hidden;position:absolute}
+
+.pop_verticalslab, .pop_horizontalslab{width:100%;height:100%;position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.pop_verticalslab{margin:-10px 0 0;padding-bottom:20px}
+.pop_horizontalslab{margin:0 0 0 -10px;padding-right:20px}
+.ie7 .pop_verticalslab{margin-left:10px}
+.ie7 .pop_horizontalslab{margin-left:0}
+.generic_dialog{height:0;left:0;overflow:visible;position:absolute;top:0;width:100%;z-index:101}
+#generic_dialog_iframe{filter:alpha(opacity=0);left:0;position:absolute;top:0;z-index:3}
+.generic_dialog_popup{height:0;overflow:visible;position:relative;width:465px;margin:auto}
+.generic_dialog div.dialog_loading{background-color:#f2f2f2;border:1px solid #606060;font-size:25px;padding:10px}
+#generic_dialog_overlay{z-index:100;position:fixed;*position:absolute;top:0;height:100%;width:100%;filter:alpha(opacity=50);opacity:.5}
+.dark_dialog_overlay{background-color:#747474}
+.light_dialog_overlay{background-color:#fff}
+.pop_content{direction:ltr; font-size:14px;}
+.pop_dialog_rtl .pop_content{direction:rtl}
+
+.pop_content {
+	width:960px;
+	margin:0 auto 0 auto;
+}
+
+.pop_content h2 span{display:block;padding:5px 10px}
+.pop_content .dialog_content{background:#fff; border-bottom:1px solid #ccc;border-top-width:0}
+.pop_content .dialog_body{padding:10px 15px;border-bottom:1px solid #ccc}
+.dialog_body .dialog_content_img{float:left;margin-right:15px}
+.dialog_body .dialog_content_txt{width:300px;float:left;padding-bottom:5px}
+.dialog_body .dialog_content_body{padding-bottom:13px}
+.dialog_body .form_label{padding-right:5px}
+.pop_content .dialog_summary{background:#f2f2f2;padding:8px 10px;border-bottom:1px solid #ccc}
+.pop_content .dialog_buttons{background:#f2f2f2;padding:8px 10px 8px 10px;text-align:right}
+.pop_content .dialog_buttons .uiButton{margin-left:5px}
+.pop_content .dialog_buttons_msg{float:left;line-height:17px;padding-top:4px}
+.pop_content .dialog_footer{background:#F2F2F2 none repeat scroll 0}
+.full_bleed .pop_content .dialog_body{padding:0}
+.contextual_dialog .generic_dialog_popup{width:360px;position:absolute}
+.contextual_dialog .contextual_arrow,
+
+.contextual_dialog .contextual_arrow span,
+.contextual_dialog .contextual_arrow_rev span{display:none}
+.contextual_dialog .dialog_title{color:#000;font-size:12px;padding-bottom:2px}
+.contextual_dialog .contextual_dialog_content{background-color:#f7f7f7;border:1px solid #b7b7b7;border-bottom:2px solid #3b5998;line-height:15px;padding:8px 10px 10px 10px}
+.contextual_dialog .dialog_buttons{background-color:#f7f7f7;padding-top:10px}
+.contextual_dialog .dialog_buttons input,
+.contextual_dialog .dialog_buttons span{margin-right:10px}
+.contextual_dialog .dialog_buttons .uiButton input,
+.contextual_dialog .dialog_buttons label input{margin-right:0}
+.contextual_dialog .dialog_buttons_msg{float:right}
+.camera .pop_content .dialog_body{padding:0 0 0 0;margin-bottom:0}
+.camera .pop_content .dialog_buttons{margin-top:-2px;border-top:1px solid #555}
+.UIImageBlock_Content{display:table-cell;_display:block;vertical-align:top;width:1000px;*width:auto;*zoom:1}
+.UIImageBlock_Image{float:left;margin-right:5px}
+.UIImageBlock_Image .img,
+img.UIImageBlock_Image,
+i.UIImageBlock_Image{display:block}
+.UIImageBlock_Ext{float:right}
+.UIImageBlock_ICON_Image{margin-right:5px}
+.UIImageBlock_ICON_Content{padding-top:1px}
+.UIImageBlock_SMALL_Image{margin-right:8px}
+.UIImageBlock_MED_Image,
+.UIImageBlock_ENT_Image{margin-right:10px}
+.UIImageBlock_Entity .UIImageBlock_Content{height:50px;*height:auto;vertical-align:middle}
+.UIImageBlock_Entity img.UIImageBlock_Image,
+.UIImageBlock_Entity i.UIImageBlock_Image,
+.UIImageBlock_Entity .UIImageBlock_Image .img{height:50px;width:50px}
+.UIImageBlock_Entity .UIImageBlock_Ext{margin-top:14px;padding-left:8px}
+.uiButton,
+.uiButtonSuppressed:hover,
+.uiButtonSuppressed:active,
+.uiButtonSuppressed:focus{border:1px solid #999;border-bottom-color:#888;color:#333;cursor:pointer;display:-moz-inline-box;display:inline-block;font-size:12px;font-weight:bold;line-height:normal !important;padding:2px 6px;*padding:3px 6px 2px;text-align:center;text-decoration:none;vertical-align:middle;white-space:nowrap;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, .1);-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, .1)}
+.ff3.mac .uiButtonMedium{padding-bottom:1px}
+.uiButton + .uiButton{margin-left:4px}
+.uiButton:active,
+.uiButton:focus{opacity:1;filter:alpha(opacity = 100);-ms-filter:'alpha(opacity = 100)'}
+a.uiButtonMedium,
+a.uiButtonSuppressed:hover,
+a.uiButtonSuppressed:focus,
+a.uiButtonSuppressed:active{*padding:3px 6px 4px}
+.uiButton:hover{text-decoration:none}
+.uiButton:active,
+.uiButtonDepressed{background:#ddd;border-bottom-color:#999;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, .05);-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, .05)}
+.uiButtonSuppressed{background:none;border:0;padding:3px 7px;-moz-box-shadow:none;-webkit-box-shadow:none}
+a.uiButtonSuppressed{*padding:3px 7px 5px;_padding-top:4px}
+.uiButton .img{margin-right:5px;vertical-align:top}
+.uiButtonMedium .img{margin-top:2px;*margin-top:1px}
+.uiButtonLarge .img{margin-top:4px;*margin-top:5px}
+.uiButton .customimg{margin-top:0;*margin-top:-1px}
+.uiButton .uiButtonText,
+.uiButton input{background:none;border:0;color:#333;cursor:pointer;display:-moz-inline-box;display:inline-block;font-family:'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size:12px;font-weight:bold;margin:0;outline:none;*overflow:visible;padding:1px 0 2px;*padding:0;white-space:nowrap;_width:0}
+.uiButton input::-moz-focus-inner{border:0;padding:0}
+.uiButtonDepressed,
+.uiButtonDepressed input{cursor:default}
+a.uiButtonSuppressedNoText{padding:4px 5px}
+a.uiButtonSuppressedNoText:hover{padding:3px 4px}
+a.uiButtonSuppressedNoText .img{margin:0}
+.uiButtonSpecial{background-color:#69a74e;background-position:0 -96px;border-color:#3b6e22 #3b6e22 #2c5115;color:#fff}
+.uiButtonSpecial:active{background:#609946;border-bottom-color:#3b6e22}
+.uiButtonSpecial.uiButtonDisabled,
+.uiButtonSpecial.uiButtonDisabled:active{background:#69a74e;border-bottom-color:#3b6e22}
+.uiButtonConfirm{background-color:#5b74a8;background-position:0 -48px;border-color:#29447e #29447e #1a356e;color:#fff}
+.uiButtonConfirm:active{background:#4f6aa3;border-bottom-color:#29447e}
+.uiButtonConfirm.uiButtonDisabled,
+.uiButtonConfirm.uiButtonDisabled:active{background:#5b74a8;border-bottom-color:#29447e}
+.uiButtonSpecial .uiButtonText,
+.uiButtonConfirm .uiButtonText,
+.uiButtonSpecial input,
+.uiButtonConfirm input{color:#fff}
+.uiButtonDisabled,
+.uiButtonDisabled:active{background:#f2f2f2;cursor:default;filter:alpha(opacity = 50);-ms-filter:'alpha(opacity = 50);';opacity:.5;-moz-box-shadow:none;-webkit-box-shadow:none}
+.uiButtonDisabled input{cursor:default}
+.uiButtonDefault.uiButtonDisabled,
+.uiButtonDefault.uiButtonDisabled:active{border-color:#c8c8c8;filter:alpha(opacity = 100);-ms-filter:'alpha(opacity = 100);';opacity:1}
+.uiButtonDefault.uiButtonDisabled input,
+a.uiButtonDisabled .uiButtonText{color:#b8b8b8}
+.uiButtonSmall{padding:1px 4px;*padding:2px 4px 1px}
+.uiButtonSmall .uiButtonText,
+.uiButtonSmall input{font-size:10px;padding:0 0 2px}
+.uiButtonSmall input{padding-top:1px}
+.uiButtonLarge,
+.uiButtonLarge .uiButtonText,
+.uiButtonLarge input{font-size:14px}
+.uiButtonLarge{padding:2px 6px;*padding:1px 6px 2px}
+a.uiButtonLarge{*padding:3px 6px 4px}
+.safari4 a.uiButtonLarge{padding-top:1px}
+.uiLinkButton input{background:none;border:none;color:#3b5998;cursor:pointer;font-family:'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;font-size:12px;margin:0;*overflow:visible;padding:0;vertical-align:top;_width:0}
+.uiLinkButton input::-moz-focus-inner{border:0;padding:0}
+.uiLinkButton:hover,
+.uiLinkButton input:hover,
+.uiLinkButton input:focus,
+.uiLinkButton input:active{color:#3b5998;text-decoration:underline}
+.gray_box{background-color:#f2f2f2;border:1px solid #ccc}
+
+/******************end**************/

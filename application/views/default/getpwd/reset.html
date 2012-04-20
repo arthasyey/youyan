@@ -1,0 +1,27 @@
+<{include file="../header.html"}>
+<div class="main">
+	<div class="headline">
+		<p class="p1">重置 <{$email}>的密码</p>
+	</div>
+	<div class="registration_box" style="margin-bottom:200px;">
+		<div class="registration_content">
+			<div class="registration_content_row" style="margin-top:-10px;">
+				<p class="p1">新密码(6位以上)：</p>
+				<input class="txt2" name="password" id="password" type="password">
+			</div>
+			<div class="registration_content_row" style="width:750px;">
+				<p class="p1">　&nbsp;再次输入密码：</p>
+				<input class="txt2" name="signupOutEmail" id="passwordc" type="password">
+			</div>
+			<div class="clear"></div>
+			<p class="p_btn">
+				<input type="hidden" id="reset_id" name="reset_id" value="<{$reset_id}>" />
+				<input type="button" id="signupOutBTNMain" onClick="resetPassDone('<{$email}>')" class="registration_box_btn" value="确定">
+				<a class="backLink" href="/">返回</a> </p>
+			<div class="clear"></div>
+		</div>
+		<div class="login_content"> </div>
+		<div class="clear"></div>
+	</div>
+</div>
+<{include file="../footer.html"}> 

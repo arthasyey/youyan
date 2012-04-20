@@ -1,0 +1,29 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body, div, label, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td {
+	border:0 none;
+	margin:0;
+	outline:0 none;
+	padding:0;
+	font-family:SimSun;
+	word-wrap:break-word;
+}
+html{
+	background-color:#BDBCBD;
+}
+li a{
+	text-decoration:none;
+}
+h2{
+	font-weight:100;
+}
+.clear{
+	clear:both;
+	font-size:1px;
+}
+body{
+	margin:0;
+	padding:0;
+	background-color:#ededed;
+	background-position:top;
+}

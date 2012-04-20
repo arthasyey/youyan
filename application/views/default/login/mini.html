@@ -1,0 +1,28 @@
+<div id="loginPane" style="display: block;" class="boxy-content">
+	<div class="loginTitlePane">
+		登录友言&nbsp;<span id="login_optid"></span>
+	</div>
+	<div>
+		<form method="post" name="login_form" id="login_form" action="<{$siteurl}>/login">
+			<div class="loginItemWrapper">
+				<div class="loginItemTitle">Email</div>
+				<input type="text" id="loginEmail" name="loginEmail" class="inputStyle">
+				<div class="clear"></div>
+			</div>
+			<div class="loginItemWrapper">
+				<div class="loginItemTitle">登录密码</div>
+				<input type="password" id="loginPassword" name="loginPassword" class="inputStyle">
+				<div class="clear"></div>
+			</div>
+			<div class="bottomLoginWrapper">
+				<input type="checkbox" id="checkReme" name="checkReme">
+				<div class="checkRemeIntro">记住我</div>
+				<input class="loginBTNPane" type="submit" value="登录" onclick="ajaxpost('login_form','callbackLogin',1000,'login_optid')" />
+				<div class="clear"></div>
+			</div>
+			<input type="hidden" value="" id="clickType" name="clicktype">
+			<input type="hidden" name="formhash" value="<{formhash()}>" />
+    		<input type="hidden" name="loginsubmit" value="1" />
+		</form>
+	</div>
+</div>

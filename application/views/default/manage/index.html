@@ -1,0 +1,72 @@
+<{include file="./header.html"}>
+<script language="javascript" src="../../../js/global.js"></script>
+<script language="javascript" src="../../../js/jquery.boxy.js"></script>
+<script language="javascript" src="../../../js/youyan_admin_view.js"></script>
+<script language="javascript" src="../../../jquery.ui/jquery-1.4.2.min.js"></script>
+<script language="javascript" src="../../../js/jquery.boxy.js"></script>
+<link href="../../../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/boxy.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/admin.css" rel="stylesheet" type="text/css" />
+<div class="contentWrapper">
+	<div class="contentContainer contentContainerOut">
+		<div class="contentTitle">管理您的网站</div>
+		<div class="contentTableTop">
+			<div class="urlContanter">URL</div>
+			<div class="commentsContainer">评论数</div>
+			<div class="viewContainer">功能</div>
+			<div class="clear"></div>
+		</div>
+		<{foreach from=$domains key=key item=item name=info}>
+		<div class="contentTableLine" id="<{$key}>"> <a class="urlContanter" onclick="getAdmin('<{$item.domain}>');"><{$item.domain}> (<span style="text-decoration:underline">查看</span>)</a> <{if $item.verified neq 2}>
+			<div class="commentsContainer amountContainer"> <{if $item.verified eq 0}>安装代码后自动验证<{else}><{$item.n_comments}><{/if}> </div>
+			<{else}> <a class="commentsContainer amountContainer" style="cursor:pointer;" onclick="getAdminCheck('<{$item.domain}>');">请上传验证文件到服务器</a> <{/if}> <a class="viewContainer" onclick="hideURL('<{$item.domain}>','<{$key}>');">删除</a>
+			<div class="clear"></div>
+		</div>
+		<{foreachelse}>
+		<div id="0" class="contentTableLine">
+			<div class="urlContanter">您还没有添加可以管理的网站</div>
+			<div class="commentsContainer amountContainer"></div>
+			<a class="viewContainer" ></a>
+			<div class="clear"></div>
+		</div>
+		<{/foreach}>
+		<div class="contentTableBottom">
+			<div class="urlContanter">合计</div>
+			<div class="commentsContainer" id="sumAmount">0</div>
+			<div class="viewContainer"></div>
+			<div class="clear"></div>
+		</div>
+		<div id="currentLineID"></div>
+	</div>
+	<script language="javascript" type="text/javascript">
+		var $totalAmount = 0;
+		$(".amountContainer").each(function(){
+			$amount = parseInt($(this).html());
+			if(!isNaN($amount)){
+				$totalAmount +=$amount;
+			}								   
+		});
+		$("#sumAmount").html($totalAmount);
+	</script>
+</div>
+<div id="delPane"> <a class="close" href="#" id="closediag"></a>
+	<div class="loginTitlePane">确认删除<span class="alertDel" id="chooseToDEL"></span>？</div>
+	<div class="delIntroduce">如果<span class="alertDel"></span>不是您添加的域名或者您不再需要这套管理系统请选择删除</div>
+	<div class="loginAfterPane"> <a class="delBTNPane" onclick="submitDEL()" id="delConfirm">删除</a><a class="delBTNPane" onclick="boxDel.hide();">取消</a>
+		<div class="clear"></div>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+$("#delPane").ready
+(
+  function()
+  {
+	boxDel=new Boxy($("#delPane"), {
+		modal: false,
+		show: false
+	});	
+  }
+);
+//showEditFirst();
+</script>
+<{include file="./footer.html"}>

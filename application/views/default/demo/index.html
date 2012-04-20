@@ -1,0 +1,376 @@
+<{include file="../header.html"}>
+<style>
+#wrapper {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 990px;
+}
+#content {
+    background: none repeat scroll 0 0 transparent;
+    float: left;
+    overflow: hidden;
+    width: 715px;
+}
+.single_post {
+    background: none repeat scroll 0 0 #F9F9F9;
+}
+.p_date {
+    color: #FFFFFF;
+    height: 54px;
+    left: 15px;
+    position: absolute;
+    text-align: center;
+    top: 18px;
+    width: 52px;
+}
+.p_date span {
+    display: block;
+    overflow: hidden;
+}
+.p_date_ym {
+    background: none repeat scroll 0 0 #227AD1;
+    border: 1px solid #227AD1;
+    border-radius: 5px 5px 0 0;
+    color: #FFFFFF;
+    height: 16px;
+    line-height: 20px;
+    width: 52px;
+}
+.p_date_d a {
+    color: #000000;
+}
+.p_date_d a:hover {
+    color: #2179D1;
+}
+.p_date_d {
+    border: 1px solid #227AD1;
+    border-radius: 0 0 5px 5px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    height: 38px;
+    line-height: 38px;
+    text-shadow: -1px -1px 1px white;
+    width: 52px;
+}
+h2.title {
+    border-bottom: 2px dotted #CBCBCB;
+    color: #333333;
+    font-size: 18px;
+    line-height: 36px;
+    margin: 0 0 0 62px;
+    overflow: hidden;
+}
+h2.title a {
+    color: #333333;
+}
+h2.title a:hover {
+    color: #2179D1;
+}
+.post_info_t, .post_info_b {
+    color: #878787;
+    height: 26px;
+    line-height: 24px;
+    margin: 0 0 10px 62px;
+    overflow: hidden;
+}
+.post_info_b {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 0 0 6px 6px;
+    border-top: 1px solid #C0C0C0;
+    margin: 0 -15px;
+}
+.post_info_t a, .post_info_b a {
+    color: #878787;
+    text-decoration: none;
+}
+.post_info_t a:hover, .post_info_b a:hover {
+    color: #2179D1;
+    text-decoration: underline;
+}
+.p_author, .p_catetory, .p_comment, .p_tag, .p_normal, .p_share_t {
+    float: left;
+    padding: 0 10px 0 18px;
+}
+.p_normal {
+    background: none repeat scroll 0 0 transparent;
+    padding: 0 10px 0 0;
+}
+.p_author {
+    background-position: -970px 0;
+}
+.p_catetory {
+    background-position: -970px -30px;
+    max-width: 200px;
+}
+.p_catetory_s {
+    margin-left: 15px;
+}
+.p_comment, .p_share_t {
+    background-position: -210px -50px;
+    float: right;
+    padding: 0 0 0 18px;
+}
+.p_share_t {
+    background: none repeat scroll 0 0 transparent;
+    height: 26px;
+    padding: 1px 0 0;
+    text-align: right;
+    width: 300px;
+}
+.post_info_t .p_share_t a {
+    border: 1px solid #FFFFFF;
+    display: inline-block;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+.post_info_t .p_share_t a:hover {
+    background-color: #C0C0C0;
+    border: 1px solid #C0C0C0;
+}
+.p_tag {
+    background-position: -565px -50px;
+    margin-left: -15px;
+    max-width: 110px;
+    padding: 0 10px 0 33px;
+}
+.p_tag_s {
+    float: right;
+}
+.entry {
+    font-size: 14px;
+    line-height: 24px;
+    overflow: hidden;
+}
+.entry .post_thumbnail {
+    float: left;
+    margin: 0 15px 10px 0;
+}
+.entry .post_thumbnail img {
+    margin: 10px;
+    max-height: 284px;
+    max-width: 160px;
+}
+.entry .p_ad {
+    border: 1px solid #C0C0C0;
+    display: block;
+    margin: 0 15px 10px 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+}
+.entry ul, .entry ol {
+    margin: 0 30px 20px;
+}
+.entry li {
+    line-height: 20px;
+}
+.entry hr {
+    display: block;
+}
+.entry p {
+    line-height: 24px;
+    margin: 0 0 20px;
+}
+.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
+    margin: 0 0 20px;
+}
+.entry a {
+    color: #2179D1;
+    text-decoration: none;
+}
+.entry a:hover {
+    background: none repeat scroll 0 0 #D4E8FC;
+    text-decoration: none;
+}
+.entry img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: auto;
+    max-width: 650px;
+}
+.entry img.attachment-extra-featured-image {
+    margin-bottom: 10px;
+}
+.entry img.wp-smiley {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    padding: 0;
+}
+.entry .alignleft, .entry img.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.entry .alignright, .entry img.alignright {
+    display: inline;
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.entry .aligncenter, .entry img.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.entry img.alignleft, .entry img.alignright, .entry img.aligncenter {
+    margin-bottom: 10px;
+}
+.entry table {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-collapse: collapse;
+    margin: 5px 0 10px;
+}
+.entry th, .entry td {
+    border: 1px solid #CCCCCC;
+    padding: 3px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.entry .entry tr.even td {
+    background: none repeat scroll 0 0 #F7F7F7;
+}
+.entry th {
+    background: none repeat scroll 0 0 #EDEFF0;
+}
+.entry blockquote {
+    background: none repeat scroll 0 0 #F1F0EA;
+    border: 1px solid #E3E1D5;
+    margin: 0 20px 20px;
+    padding: 10px 10px 10px 42px;
+}
+.entry code {
+    background: none repeat scroll 0 0 #333333;
+    color: #DDDDDD;
+}
+.entry pre {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F2F2F2;
+    border-color: #E3E1D5;
+    border-style: solid;
+    border-width: 1px 1px 1px 15px;
+    color: #555555;
+    font-family: "Courier New",FixedSys;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 0 20px;
+    overflow: auto;
+    padding: 0 5px 16px;
+    width: 90%;
+}
+.entry p.read-more a, .entry p a.more-link {
+    border-left: 1px solid #C0C0C0;
+    bottom: 0;
+    color: #2179D1;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 0 0 26px;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    width: 65px;
+}
+.entry p.read-more a:hover, .entry p a.more-link:hover {
+    color: #555555;
+}
+.page_link {
+    clear: both;
+    padding: 10px 0 20px;
+}
+.sticky {
+}
+.post_author {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    display: inline-block;
+    margin: 50px 0 20px;
+    padding: 5px;
+}
+.post_author img {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    float: left;
+    height: 64px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    width: 64px;
+}
+.post_author p {
+    margin: 0;
+    padding: 0 0 0 10px;
+    width: 650px;
+}
+.related_posts a {
+    text-decoration: none;
+}
+.related_posts h3 {
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+.entry .related_posts ul {
+    margin: 0 0 20px 15px;
+}
+.entry .related_posts ul li {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+.single_post {
+    background: none repeat scroll 0 0 #F9F9F9;
+}
+#path, .post, #pagination, .p_navi {
+    border-radius: 6px 6px 6px 6px;
+}
+
+.post {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 0 0 15px !important;
+    padding: 15px 15px 0;
+    position: relative;
+    width: 683px;
+}
+</style>
+<br />
+<div id="wrapper" style="width:715px;">
+	<div id="content" class="is_singular">
+		<div class="post single_post" id="post-54654">
+			<div class="p_content">
+				<div class="p_date" style="font-size:12px"> <span class="p_date_ym">2012.01</span> <span class="p_date_d">01</span></div>
+				<h2 class="title">看好第三方社交评论系统！JiaThis宣布收购友言</h2>
+				<div class="post_info_t"> <span class="p_author"><a href="http://www.36kr.com/p/author/peterburg" title="由 马超—怕水的鱼 发布" rel="author">山雨</a></span> <span class="p_normal" title="2012 年 1 月 1 日 上午 8:10">发表于 2012-01-01 </span>
+					<div class="p_share_t"><span id="t_sina_btn"></span> <span id="t_tqq_btn"></span> </div>
+				</div>
+				<div class="entry">
+					<p>近日，中国最大的社会化分享工具提供商JiaThis成功收购社会化评论提供商”友言”，通过此次收购，友言的全部业务将整合到JiaThis公司当中。这是自JiaThis成立以来首次重大战略收购。</p>
+					<p>“友言”(UYAN.CC)是国内领先的第三方实时社交评论工具，上线3个月便有6000多个网站主开始使用此工具。网站主可以利用友言为网站创建自己的社会化评论框，以达到提高网站的访问量及回流量的目的。访问者可以将评论一键同步到各大微博及社交网络上去（目前支持7个社交网站），友言的“完全社交化”的功能，还可以将您网站的官方微博上的评论同步至你的网站。方便用户与用户之间进行更深入的交流。</p>
+					<p>JiaThis是国内最大的社会化分享工具提供商，目前有50万家网站主正在使用其分享工具。聚合117家社交网站的分享按钮和精准的数据分析，JiaThis推广社会化优化，帮助站长稳步提升网站流量。</p>
+					<p><a rel="attachment wp-att-54655"><img class="size-full wp-image-54655 aligncenter" title="youyan" src="54654_files/youyan.png" alt="" height="418" width="536"></a></p>
+					<p>Jiathis非常重视本次收购：</p>
+					<p>此次收购后，Jiathis将利用本身的技术实力，帮助友言开始对平台加大硬件投入，同时进行全面升级，包括利用Memcache、CDN等分布式的技术，全力提升友言的加载速度和性能。</p>
+					<p>同时，在功能上Jiathis也将与友言团队一起不断完善整套社会化评论解决方案，包括前台JS代码和后台的各项功能。让它对用户更“友”好，对网站主更“友”好。</p>
+					<p>希望广大站长一如既往的支持友言！</p>
+					<br />
+					<br />
+				</div>
+				<!-- UY BEGIN -->
+				<div id="uyan_frame"></div>
+				<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=6" async=""></script>
+				<!-- UY END -->
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="../footer.html"}>

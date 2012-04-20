@@ -1,0 +1,39 @@
+<{include file="../admincp_header.html"}>
+<div class="title">
+管理员基本资料修改
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+
+<form method="post" action="" onsubmit="return form_submit();">
+  <div class="table_div">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+      <tbody>
+	   <tr class="tr1">
+          <td width="19%" height="35" align="right"><p class="b">管理员ID：</p></td>
+          <td colspan="2" align="left"><{$smarty.session.uyan_adminid}></td>
+        </tr>
+        <tr>
+          <td width="19%" height="35" align="right"><p class="b">管理员登录名：</p></td>
+          <td colspan="2" align="left"><{$smarty.session.uyan_adminname}></td>
+        </tr>
+        <tr class="tr1">
+          <td height="35" align="right"><p class="b">真实姓名：</p></td>
+          <td colspan="2" align="left"><input type="text" name="realname" class="input_text" size="30" value="<{$adminuser.realname}>" />
+		  <span class="f12">真实姓名的长度请控制在20个字符之内！一个汉字为2个字符。</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table_div align_c">
+    <input type="submit" id="SubmitBtn" value="确 定" class="button100" />
+    <input type="hidden" name="formhash" value="<{formhash()}>" />
+    <input type="hidden" name="profilesubmit" value="1" />
+  </div>
+</form>
+<{include file="../admincp_footer.html"}> 

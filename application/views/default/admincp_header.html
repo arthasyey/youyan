@@ -1,0 +1,42 @@
+<{if !$inajax}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><{if !empty($pagetitle)}><{$pagetitle}> - <{/if}><{if !empty($moduletitle)}><{$moduletitle}> - <{/if}><{$site_name}><{if !empty($site_title)}> - <{$site_title}><{/if}></title>
+<meta name="keywords" content="<{if !empty($meta_keywords)}><{$meta_keywords}><{else}><{$site_keywords}><{/if}>" />
+<meta name="description" content="<{if !empty($meta_description)}><{$meta_description}><{else}><{$site_description}><{/if}>" />
+
+<link rel="shortcut icon" href="<{$siteurl}>/favicon.ico">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/common.css">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/admincp.css">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/dialog.css">
+
+<script type="text/javascript">var SITE_URL = '<{$siteurl}>';</script>
+<script type="text/javascript" src="<{$jsdir}>/common.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/jquery-1.6.4.min.js"></script>
+
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<{if $sitemethod!="login"}>
+<div class="logo"><a href="<{$siteurl}>/admincp"><img src="<{$imgpath}>/admincp/logo.gif" alt="JiaThis业务管理平台" /></a></div>
+<div class="user">
+<a href="<{$smarty.const.JIATHIS_WEB_HOST}>" target="_blank" class="blue">网站首页</a> | 
+<a href="<{$siteurl}>/admincp" class="blue">管理首页</a> | 
+<a href="<{$siteurl}>/adminsettings" class="blue">设置</a>
+<br /><br />
+  <span>
+  <{$smarty.session.uyan_adminname}>，欢迎你登录友言业务管理平台 [<a href="<{$siteurl}>/admincp/logout/" class="blue">退出</a>]</span></div>
+<div class="nav">
+  <ul>
+	<{$adminmenu.menu_class}>
+  </ul>
+</div>
+<div class="nav_downbg"></div>
+<div class="nav_down">
+  <{$adminmenu.menu_method}>
+</div>
+<{/if}> 
+<{/if}>

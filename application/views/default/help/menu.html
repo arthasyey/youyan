@@ -1,0 +1,11 @@
+<{foreach from=$directory item=dir name=directory}>
+<ul>
+<li class="<{if $cms.cid == $dir.cid}>show<{else}>hide<{/if}>" id="cms_menu_<{$dir.cid}>" onclick="show_cms_menu('<{$dir.cid}>');"><span class="txt"><a href="javascript:void(0);"><{$dir.typename}></a></span></li></ul>
+<ul style="display:<{if $cms.cid != $dir.cid}>none<{else}>block<{/if}>;" id="cms_ul_<{$dir.cid}>">
+	<{foreach from=$dir.cms item=cms_row name=cms_row}>
+    <li class="show_a"><a href="<{$siteurl}>/help/html/<{$cms_row.seourl}>" title="<{$cms_row.subject}>" <{if $cms.seourl == $cms_row.seourl}>style="color:#109db6;"<{/if}>><{$cms_row.shorttitle}></a></li>
+	<{/foreach}>
+</ul>
+<{/foreach}>
+<div style="margin-top:15px; margin-bottom:5px"> <a href="http://wpa.qq.com/msgrd?v=3&uin=1735067958&site=qq&menu=yes" target="_blank"><img src="/images/qqbig.png" width="121" height="40" alt="客服QQ" border="0" /></a></div>
+<div class="clear"></div>

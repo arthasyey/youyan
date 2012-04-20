@@ -1,0 +1,229 @@
+body, div, label, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td {
+    border: 0 none;
+    font-family: 微软雅黑,黑体,SimSun;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    word-wrap: break-word;
+	font-size: 14px;
+}
+
+li a {
+    text-decoration: none;
+}
+
+img {
+    border: medium none;
+}
+
+a {
+    color: #109DB6;
+}
+
+.okmsg{
+	margin:2px 0pt 0pt 0px;
+	padding:5px 5px 5px 25px;
+	border:1px solid #00BE00;
+	background:#E6FFE6 url('../images/common/standard_msg_ok.gif') 5px 6px no-repeat;
+	color:#000;
+}
+.naked{
+	background-color:transparent;
+	border:medium none;
+}
+.msgok{
+	margin:2px 0pt 0pt 0px;
+	padding:5px 5px 5px 25px;
+	background:#E6FFE6 url('../images/common/standard_msg_ok.gif') 5px 6px no-repeat;
+	background-color:transparent;
+	border:medium none;
+}
+.promptmsg{
+	margin:2px 0pt 0pt 0px;
+	padding:5px 5px 5px 25px;
+	border:1px solid #00A8FF;
+	background:#E2F5FF url('../images/common/standard_msg_prompt.gif') 5px 6px no-repeat;	
+	color:#000;
+}
+.errormsg{
+	margin:2px 0pt 0pt 0px;
+	padding:5px 5px 5px 25px;
+	border:1px solid #F60;
+	background:#FFF2E9 url('../images/common/standard_msg_error.gif') 5px 6px no-repeat;	
+	color:#000;
+}
+.hintmsg{
+	padding:2px 5px 5px 0px;
+	background-color:transparent;
+	background-image:none;
+	color:#999;
+}
+.hintmsg a:link, .hintmsg a:visited{
+	color:#666;
+	text-decoration:none;
+}
+
+
+.icon_ok, .icon_error, .icon_prompt, .icon_pending {
+	background:none no-repeat scroll left top transparent;
+	line-height:16px;
+	margin-top:8px;
+	min-height:16px;
+}
+* html .icon_ok, * html .icon_error, * html .icon_prompt, * html .icon_pending {
+	height:16px;
+}
+.icon_ok {
+background-image:url("../images/common/ico_ok.gif");
+}
+.icon_error {
+background-image:url("../images/common/ico_error.gif");
+}
+.icon_pending {
+background-image:url("../images/common/ico_pending.gif");
+}
+
+.icon_prompt {
+background-image:url("../images/common/ico_prompt.gif");
+}
+
+
+.red_prompt {
+	background:none repeat scroll 0 0 #FFF6EE;
+	border:1px solid #FAEFE4;
+	display:block;
+	overflow:hidden;
+	padding:10px;
+	font-size: 14px; text-align: center; font-weight: bold; margin: 10px;color:#FF0000;
+}
+
+.yellow_prompt {
+	background:none repeat scroll 0 0 #FFF8CC;
+	border:1px solid #FFE222;
+	display:block;
+	overflow:hidden;
+	padding:10px;
+	font-size:14px;text-align:center;margin:10px;font-weight:bold
+}
+
+.m0 {
+margin:0 !important;
+}
+.mt0 {
+margin-top:0 !important;
+}
+.mt5 {
+margin-top:5px !important;
+}
+.mt8 {
+margin-top:8px !important;
+}
+.mt10 {
+margin-top:10px !important;
+}
+.mt12 {
+margin-top:12px !important;
+}
+.mt13 {
+margin-top:13px !important;
+}
+.mt15 {
+margin-top:15px !important;
+}
+.mt18 {
+margin-top:18px !important;
+}
+.mt20 {
+margin-top:20px !important;
+}
+.mt22 {
+margin-top:22px !important;
+}
+.mt25 {
+margin-top:25px !important;
+}
+.mt30 {
+margin-top:30px !important;
+}
+.mt40 {
+margin-top:40px !important;
+}
+.mt50 {
+margin-top:50px !important;
+}
+.mb0 {
+margin-bottom:0 !important;
+}
+.mb5 {
+margin-bottom:5px !important;
+}
+.mb10 {
+margin-bottom:10px !important;
+}
+.mb8 {
+margin-bottom:8px !important;
+}
+.mb15 {
+margin-bottom:15px !important;
+}
+.mb20 {
+margin-bottom:20px !important;
+}
+.mb25 {
+margin-bottom:25px !important;
+}
+.mb30 {
+margin-bottom:30px !important;
+}
+.mb40 {
+margin-bottom:40px !important;
+}
+.mb50 {
+margin-bottom:50px !important;
+}
+
+.clear {
+	clear:both;
+}
+.hide{display:none;}
+.show{display:;}
+
+.fb{font-weight:bold;}
+
+
+.submit-prompt{
+	width:520px;font-size:14px;
+}
+
+
+/*button*/
+.button50{width:50px;font-size:14px; height:30px; line-height:25px;cursor:pointer;_cursor:hand;}
+.button80{width:80px;font-size:14px; height:30px; line-height:25px;cursor:pointer;_cursor:hand;}
+.button100{width:100px;font-size:14px; height:30px; line-height:25px;cursor:pointer;_cursor:hand;}
+.button150{width:150px;font-size:14px; height:30px; line-height:25px;cursor:pointer;_cursor:hand;}
+.button200{width:200px;font-size:14px; height:30px; line-height:25px;cursor:pointer;_cursor:hand;}
+
+/*input*/
+.input_text{
+	font-size:14px;
+    border:1px #79a0bb solid;
+    padding:3px 1px;
+    /*margin-top:-2px;*/
+    *padding:3px 1px 1px ;
+}
+.errorInput {
+    background: url("../images/common/delDone.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 17px;
+    margin-left: 10px;
+    margin-top: 9px;
+    width: 17px;
+}
+.correctInput {
+    background: url("../images/common/wellDone.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 17px;
+    margin-left: 10px;
+    margin-top: 9px;
+    width: 17px;
+}

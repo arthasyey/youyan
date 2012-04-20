@@ -1,0 +1,59 @@
+<{include file="../admincp_header.html"}>
+<link rel="stylesheet" href="<{$jsdir}>/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="<{$jsdir}>/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="<{$jsdir}>/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="<{$jsdir}>/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="<{$jsdir}>/kindeditor/plugins/code/prettify.js"></script>
+<script charset="utf-8" src="<{$jsdir}>/kindeditor/kindeditor-init.js"></script>
+<div class="title">
+添加内容
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+
+<form method="post" action="" onsubmit="return form_submit();">
+  <div class="table_div">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+      <tbody>
+        <tr class="tr1">
+          <td width="19%" height="35" align="right"><p class="b">标题：</p></td>
+          <td align="left"><input type="text" name="subject" class="input_text" size="30" value="<{$cms.subject}>" />
+          </td>
+        </tr>
+        <tr>
+          <td width="19%" height="35" align="right"><p class="b">分类：</p></td>
+          <td align="left">
+		  <{$selectstr}>
+		  </td>
+        </tr>
+        <tr class="tr1">
+          <td height="35" align="right"><p class="b">SeoUrl：</p></td>
+          <td align="left"><input type="text" name="seourl" class="input_text" size="30" value="<{$cms.seourl}>" />
+		  <span class="f12">SeoUrl是为了使URL更加美化，对搜索引擎更友好，如“what-is-jiathis”，为空则用ID显示</span>
+		  </td>
+        </tr>
+        
+        <tr>
+          <td align="right"><p class="b">内容：</p></td>
+          <td height="280" align="left">
+	
+		  <textarea name="content" id="content" class="table_div_left input_text"><{$cms.content}></textarea>
+		
+		  </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table_div align_c">
+    <input type="submit" id="SubmitBtn" value="确 定" class="button100" />
+	<input type="button" value="返 回" class="button100" onclick="window.location.href='<{$siteurl}>/cmscp/'" />
+    <input type="hidden" name="formhash" value="<{formhash()}>" />
+    <input type="hidden" name="addsubmit" value="1" />
+  </div>
+</form>
+<{include file="../admincp_footer.html"}> 

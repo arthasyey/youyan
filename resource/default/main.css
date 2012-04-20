@@ -1,0 +1,216 @@
+/* 首页滚动 */
+.bannerContainer {
+    margin: 15px auto;
+    width: 980px;
+}
+a.bannerLeftArrow {
+    cursor: pointer;
+    float: left;
+    margin: 10px 10px 0 0;
+    opacity: 0.7;
+}
+a.bannerLeftArrow {
+    cursor: pointer;
+    opacity: 0.7;
+}
+#scrollImageOut {
+    float: left;
+    height: 45px;
+    overflow: hidden;
+    width: 890px;
+}
+#scrollImageInner {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#scrollImageInner a {
+    opacity: 0.7;
+}
+#scrollImageInner a:hover {
+    opacity: 1;
+}
+#scrollImageInner a img {
+    border: medium none;
+}
+a.bannerRightArrow {
+    cursor: pointer;
+    float: left;
+    margin: 10px 0 0 10px;
+    opacity: 0.7;
+}
+a.bannerRightArrow {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/* 首页中部 */
+.blueWrapper {
+    background: url("../images/uyan/blueBG2.png") repeat-x scroll 0 bottom transparent;
+    border-bottom: 1px solid #3796A8;
+    height: 500px;
+}
+.blueContainer {
+    margin: 0 auto;
+    width: 980px;
+}
+.devIntro {
+    background: url("../images/uyan/DEVintroPic.gif") no-repeat scroll 0 30px transparent;
+    float: left;
+    height: 370px;
+    width: 544px;
+}
+.devCreatePane {
+    float: left;
+    padding-top: 75px;
+}
+.mainIntro {
+    color: #FFFFFF;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 23px;
+    padding-left: 18px;
+    width: 418px;
+}
+.mainIntro p {
+    font-size: 14px;
+    padding-top: 10px;
+}
+.createCodeWPBTN {
+    background: url("../images/uyan/wordpressBTN.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 55px;
+    margin: 15px 0 0 18px;
+    width: 313px;
+}
+.morebutton_btn {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: -moz-use-text-color #109DB6 #109DB6;
+    border-right: 1px solid #109DB6;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    color: #7F7F7F;
+    margin: 0 0 0 19px;
+    overflow: hidden;
+    position: absolute;
+    width: 309px;
+    z-index: 9;
+}
+.morebutton_btn li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #7F7F7F;
+    display: block;
+    height: 30px;
+    padding: 1px;
+    text-align: center;
+}
+.morebutton_btn li a {
+    color: #7F7F7F !important;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.morebutton_btn li a:hover {
+    background: none repeat scroll 0 0 #ACACAC;
+    border-radius: 0 0 0 0;
+    color: #FFFFFF !important;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+}
+.signupContainer p {
+    display: block;
+    height: 10px;
+    overflow: hidden;
+}
+.signupContainer a {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin: 25px 0 0 90px;
+}
+.demoContainer {
+    padding: 4px 0 0 18px;
+}
+a.demoBTN {
+    background: url("../images/uyan/demoBTN_ie6.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 38px;
+    left: 260px;
+    position: relative;
+    top: 312px;
+    width: 151px;
+}
+a.demoBTN:hover {
+    background: url("../images/uyan/demoBTN_ie6.png") no-repeat scroll 0 -38px transparent;
+    display: block;
+    height: 38px;
+    width: 151px;
+}
+
+/* 首页为什么使用社交评论 */
+.bottomWrapper {
+    margin-top: -10px;
+    width: 100%;
+}
+.bottomIntroContainer {
+    height: 350px;
+    margin: 0 auto;
+    width: 980px;
+}
+.bottomFeatureTitle {
+    color: #333333;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 16px;
+    padding: 15px 0 0 25px;
+}
+.bottomFeatureItem {
+    float: left;
+    height: 293px;
+    padding: 0 20px;
+    width: 202px;
+}
+#firstFeature {
+    background: url("../images/uyan/pic1.jpg") no-repeat scroll 0 0 transparent;
+}
+.bottomFeatureIntroPane {
+    color: #333333;
+    font-family: 微软雅黑,黑体,simsun;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px 3px 0;
+}
+.bottomFeatureIntroPane strong {
+    line-height: 30px;
+}
+.bottomFeatureSeperate {
+    background: url("../images/uyan/bottomFeatureSepLine2.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 284px;
+    width: 2px;
+}
+#scecondFeature {
+    background: url("../images/uyan/pic2.jpg") no-repeat scroll 0 0 transparent;
+}
+.bottomItemPic {
+    height: 134px;
+    margin-top: 10px;
+    width: 200px;
+}
+#thirdFeature {
+    background: url("../images/uyan/pic3.jpg") no-repeat scroll 0 0 transparent;
+}
+#fourthFeature {
+    background: url("../images/uyan/pic4.jpg") no-repeat scroll 0 0 transparent;
+}
+
+/* 获取代码 */
+.main {
+    margin: 15px auto;
+    width: 980px;
+}

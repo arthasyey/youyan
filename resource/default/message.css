@@ -1,0 +1,58 @@
+.showmsg {width:785px;height:220px;background:url(../images/message/bg_404.gif) no-repeat;margin:2em auto;}
+.showmsg .inner {padding:16px 20px;}
+.showmsg h3 {font-size:16px;font-weight:bold;margin:5px 0 0 10px;}
+.showmsg .s1 {font-size:14px;margin:8px 0 0 10px;}
+.showmsg .s2 {font-size:12px;font-weight:bold;border-top:1px solid #dcdbcb;margin-top:15px;padding:10px 0 0 10px;}
+.showmsg ol {margin:3px 0 0 10px;}
+.showmsg li {font-size:12px;list-style:decimal inside;line-height:1.6;}
+.showmsg a {text-decoration:underline;}
+
+.showmessage { margin: 50px auto; width: 700px; background: #F7F7F7; }
+.showmessage h2 {font-size: 14px; }
+.showmessage .ye_l_b {padding: 10px 20px 10px;}
+.showmessage p {padding:10px 15px 0; font-size: 14px; }
+.showmessage .op {font-size: 12px; text-align: right; }
+	
+.ye_r_t { width: 100%; background: url(../images/message/yel_bg.gif) no-repeat right top; }
+.ye_l_t { padding: 10px 0 0; background: url(../images/message/yel_bg.gif) no-repeat left top; }
+.ye_r_b { background: url(../images/message/yel_bg.gif) no-repeat right bottom; }
+.ye_l_b { padding: 0 5px 5px; background: url(../images/message/yel_bg.gif) no-repeat left bottom; }
+
+a {color:#0045df;text-decoration:underline;}
+a:hover,a:active,a:focus {color:#f30;text-decoration:underline;}
+div#Info{border:1px solid #FFD0A8;margin:30px auto;margin-bottom:30px;width:960px;}
+/*
+div#Info ul,div#Info li,div#Info div,div#Info dl,div#Info dd,div#Info dt{margin:0;padding:0;text-align:left;}
+*/
+
+div#Info strong{color:#000;display:block;font-size:18px;font-family:黑体;font-weight:normal;line-height:20px;margin-left:65px;padding:15px 0 10px 3px;}
+
+div.success_Info{background:url('../images/message/info_succ_50.png');}
+div.error_Info{background:url('../images/message/info_error_50.png');}
+div.exclaimed_Info{background:url('../images/message/info_exclaimed_50.png');}
+div.information_Info{background:url('../images/message/info_info_50.png');}
+div.prohibition_Info{background:url('../images/message/info_prohi_50.png');}
+div.question_Info{background:url('../images/message/info_ques_50.png');}
+div.sorry_Info{background:url('../images/message/info_sorry_60.gif');}
+div#Info .success_Info,div#Info .error_Info,div#Info .information_Info,div#Info .exclaimed_Info,div#Info .prohibition_Info,div#Info .question_Info,div#Info .sorry_Info{background-color:#FFE;background-position:20px 20px;background-repeat:no-repeat;border:1px solid #FFF0A8;font-size:12px;height:auto;min-height:60px;padding:20px 20px 30px 20px;width:auto;}
+
+
+* html div#Info .success_Info,* html div#Info .error_Info,* html div#Info .information_Info,* html div#Info .exclaimed_Info,* html div#Info .prohibition_Info,* html div#Info .question_Info,* html div#Info .sorry_Info{height:60px;}
+div#Info .Todo{color:#666;font-size:12px;font-weight:normal;line-height:18px;margin-left:68px;padding:0 0 0 3px;}
+div#Info .Todo strong{color:#000;display:inline;font-size:12px;margin:0;padding:0;}
+div#Info td,div#Info th{font-size:12px;padding:3px;}
+div#Info ul{border-top:1px solid #CCC;margin-left:68px;margin-right:20px;margin-top:5px;padding-left:27px;padding-top:8px;}
+div#Info li{line-height:20px;}
+div#Info li.Helper{margin-top:20px;margin-left:-25px;padding-left:25px;list-style-type:none;border:0;}
+
+div#Info li strong{color:#000;display:inline;font-size:12px;font-weight:normal;margin-left:0;}
+div#Info ul ul{border:0;list-style-type:circle;margin:5px 0 5px -4px;padding-top:0;width:95%;}
+div#Info ul ul li strong{clear:none;display:inline;font-size:12px;}
+div#Info dl,div#Info dd,div#Info dt{font-size:14px;}
+div#Info dt{color:#039;cursor:pointer;margin-top:10px;padding-left:25px;text-decoration:underline;height:24px;}
+div#Info dl{line-height:25px;margin:10px 0 15px 0;padding:5px 0 0 100px;}
+div#Info dd{font-size:12px;padding-left:25px;}
+div#Info dd dl{background:#FFF;border:1px solid #CCC;margin-top:10px;padding:0 0 10px 10px;padding:0;width:600px;}
+div#Info dd dt{background:none;font-size:12px;padding-left:0;}
+div#Info dd strong{color:#000;display:inline;font-size:12px;font-weight:normal;margin:0;padding:0;text-indent:0;}
+div#Info dd dd{font-size:12px;padding-left:18px;}

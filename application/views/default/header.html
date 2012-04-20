@@ -1,0 +1,67 @@
+<{if !$inajax}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><{if !empty($pagetitle)}><{$pagetitle}> - <{/if}><{if !empty($moduletitle)}><{$moduletitle}> - <{/if}><{$site_name}><{if !empty($site_title)}> - <{$site_title}><{/if}></title>
+<meta name="keywords" content="<{if !empty($meta_keywords)}><{$meta_keywords}><{else}><{$site_keywords}><{/if}>" />
+<meta name="description" content="<{if !empty($meta_description)}><{$meta_description}><{else}><{$site_description}><{/if}>" />
+
+<link rel="shortcut icon" href="<{$siteurl}>/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/common.css">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/widget.css">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/main.css">
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/dialog.css">
+
+<script type="text/javascript">var SITE_URL = '<{$siteurl}>';</script>
+
+<script type="text/javascript" src="<{$jsdir}>/common.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/ajax.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/popup.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/ajaxmenu.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/main.js"></script>
+<script type="text/javascript" src="<{$jsdir}>/widget.js"></script>
+
+<script type="text/javascript">
+<{if $pagecache}>
+var _uyan_userid = '0';
+function _Uyan_UserTicket(a){if(a){if(a.uid&&a.username){var b='<a onclick="userLogout();" href="javascript:;">( 退出 )</a><a>'+a.username+'</a>';G("_uyan_utk").innerHTML=b}}}
+<{else}>
+var _uyan_userid = '<{$uid}>';
+function _Uyan_UserTicket(a){if(a){if(a.uid&&a.username){var b='<a onclick="userLogout();" href="javascript:;">( 退出 )</a><a>'+a.username+'</a>';G("_uyan_utk").innerHTML=b}}}
+<{/if}>
+</script>
+
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+
+<div class="header">
+	<div class="header_top" id="_uyan_utk">
+    	<a onclick="boxLogin.show();$('#alertLogin').html('');$('#loginForm').attr('class','outlineLogin');" href="javascript:;">登录</a><a href="<{$siteurl}>/register">注册</a>
+    </div>
+</div>
+
+<div class="radial">
+	<div class="topWrapper">
+	    <div class="topContainer">
+	        <a class="logo" href="<{$siteurl}>"></a><a style="text-decoration:none;" href="http://www.jiathis.com" class="introLogoPane" target="_blank">JiaThis旗下产品</a>
+	        <div class="loginWrapper">
+	            <a <{if $siteclass=='getcode'}>class="menuSelected"<{/if}> href="<{$siteurl}>/getcode" onmouseout="mypop('morebutton', 'hide');" onmouseover="mypop('morebutton', 'show');">获取代码<span class="jiao">▼</span></a>
+	            <a <{if $siteclass eq help}>class="menuSelected"<{/if}> href="<{$siteurl}>/help">帮助中心</a>
+	            <a id="admin_optid" <{if $uid}>href="<{$siteurl}>/youyan_admin_pre"<{else}>href="javascript:;" onclick="boxLogin.show();$('#alertLogin').html('');$('#loginForm').attr('class','outlineLogin');$('#clickType').val('admin');"<{/if}>>后台管理</a>
+	            <div class="clear"></div>
+	            <ul id="morebutton" onmouseout="mypop('morebutton', 'hide');" onmouseover="mypop('morebutton', 'show');" class="morebutton" style="display:none;">
+	               <li><a href="<{$siteurl}>/getcode">通用代码</a></li>
+	               <li><a href="<{$siteurl}>/getcode/wordpress/install">WordPress</a></li>
+	            </ul>
+	        </div>
+	        <div class="clear"></div>
+	    </div>
+	</div>
+</div>
+
+<{/if}>

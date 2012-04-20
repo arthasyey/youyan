@@ -1,0 +1,54 @@
+<{include file="../admincp_header.html"}>
+
+<div class="title">
+添加分类
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+
+<form method="post" action="" onsubmit="return form_submit();">
+  <div class="table_div">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+      <tbody>
+        <tr class="tr1">
+          <td width="19%" height="35" align="right"><p class="b">分类名称：</p></td>
+          <td align="left"><input type="text" name="typename" class="input_text" size="30" value="<{$category.typename}>" />
+		  <span class="f12">最多16个汉字(32个字符)</span>
+          </td>
+        </tr>
+        <tr>
+          <td width="19%" height="35" align="right"><p class="b">上级分类：</p></td>
+          <td align="left">
+		  <{$selectstr}>
+		  <span class="f12">请选择上级分类</span>
+		   </td>
+        </tr>
+        <tr class="tr1">
+          <td height="35" align="right"><p class="b">分类别名：</p></td>
+          <td align="left"><input type="text" name="action" class="input_text" size="30" maxlength="10" value="<{$category.action}>" />
+		  <span class="f12">html或help等</span>
+		  </td>
+        </tr>
+        <tr class="tr1">
+          <td height="35" align="right"><p class="b">排列顺序：</p></td>
+          <td align="left"><input type="text" name="sortrank" class="input_text" size="30" maxlength="10" value="<{$category.sortrank}>" />
+		  <span class="f12">(由低 -> 高)，数值越小，显示越前面，默认50</span>
+		  </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="table_div align_c">
+    <input type="submit" id="SubmitBtn" value="确 定" class="button100" />
+	<input type="button" value="返 回" class="button100" onclick="window.location.href='<{$siteurl}>/categorycp/'" />
+    <input type="hidden" name="formhash" value="<{formhash()}>" />
+    <input type="hidden" name="addsubmit" value="1" />
+  </div>
+</form>
+<{include file="../admincp_footer.html"}> 

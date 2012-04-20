@@ -1,0 +1,36 @@
+<{include file="../header.html"}>
+<script type="text/javascript" language="javascript">
+function show_cms_menu(n){
+    var obj = document.getElementById("cms_menu_"+n);
+	var classname = obj.className;
+	var $j = jQuery.noConflict();
+	if(classname.indexOf("cms_nav_active") == -1){
+		//s("cms_ul_"+n);
+		$j("#cms_ul_"+n).slideDown();
+		obj.className = "cms_nav_active";
+	} else {
+		//h("cms_ul_"+n);
+		$j("#cms_ul_"+n).slideUp();
+		obj.className = "cms_nav";
+	}
+}
+function checkStr(input,str,restr){
+	var checkString = str == "" ? restr : str;
+	var inputObj = document.getElementById(input);
+	if(inputObj.value == "" || inputObj.value.indexOf("请输入") > -1) inputObj.value = restr;
+	if (inputObj.value  != checkString){
+		document.getElementById(input).style.color = '#000000';
+	}else{
+		document.getElementById(input).style.color = '#CCCCCC';
+	}
+}
+function searchSubmitCheck(){
+	var key = document.getElementById("q").value;
+	if(key == "" || key == "请输入搜索关键字"){
+		document.getElementById("q").focus();
+		return false;
+	} else {
+		return true;
+	}
+}
+</script>	

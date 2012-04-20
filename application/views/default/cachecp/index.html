@@ -1,0 +1,35 @@
+<{include file="../admincp_header.html"}>
+
+<div class="title">
+更新全部缓存
+<{if !empty($message)}>
+	<div class="<{$msgtype}>msg submit-prompt mt10">
+	<{foreach from=$message item=item name=message}>
+		<{$item}><br />
+	<{/foreach}>
+	</div>
+<{/if}>
+</div>
+</div>
+
+<form method="post" action="">
+<div id="pop_content" class="pop_content">
+    <div class="dialog_content">
+      <div class="dialog_body">
+       更新全部缓存将会更新：媒体主缓存、黑名单缓存、帮助分类缓存、帮助目录、最新动态和分享量服务的缓存，确定吗？
+      </div>
+      <div class="dialog_buttons clearfix">
+        <label class="uiButton uiButtonLarge uiButtonConfirm"> 
+		<input type="submit" name="all_cache_submit_btn" id="all_cache_submit_btn" value="确定" class="rb1-12" onmouseover="this.className='rb2-12';" onmouseout="this.className='rb1-12';" />
+		</label>
+
+        <label class="uiButton uiButtonLarge uiButtonDefault">
+        <input type="button" onclick="window.location.href='<{$siteurl}>/cachecp/';" name="cancel" value="返回">
+        </label>
+        </div>
+    </div>
+  </div>
+<input type="hidden" name="all_cache_submit" value="1" />
+<input type="hidden" name="formhash" value="<{formhash()}>" />
+</form>
+<{include file="../admincp_footer.html"}> 

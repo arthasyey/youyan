@@ -1,0 +1,565 @@
+<script language="javascript" src="../../../js/global.js"></script>
+<script language="javascript" src="../js/jquery.boxy.js"></script>
+<script language="javascript" src="../js/youyan_admin_view.js"></script>
+<script language="javascript" src="../js/youyan_homepage_view.js"></script>
+<script language="javascript" src="../jquery.ui/jquery-1.4.2.min.js"></script>
+<script language="javascript" src="../../../easyXDM/easyXDM.min.js"></script>
+
+
+<script type="text/javascript">
+SINA_ACCESS_TOKEN = '<?php echo $_SESSION['domain_data']['SINA_ACCESS_TOKEN'];?>';
+SINA_ACCESS_SECRETE = '<?php echo $_SESSION['domain_data']['SINA_ACCESS_SECRETE'];?>'
+  SINA_APP_KEY = '<?php echo $_SESSION['domain_data']['SINA_APP_KEY'];?>';
+SINA_APP_SECRETE = '<?php echo $_SESSION['domain_data']['SINA_APP_SECRETE'];?>';
+domain = '<?php echo $_SESSION['domain_data']['domain'];?>';
+OP_WIDTH = <?php echo $_SESSION['domain_data']['width'];?>;
+OP_SELECTED_IDX = nCommentsToIdxMap[<?php echo $_SESSION['domain_data']['numCommentsPerPage'];?>];
+OP_LIMIT = <?php echo $_SESSION['domain_data']['numLimit'];?>;
+OP_STYLE = <?php echo $_SESSION['domain_data']['commentStyle'];?>;
+OP_DIG = '<?php echo $_SESSION['domain_data']['digName'];?>';
+OP_DIGDOWN = '<?php echo $_SESSION['domain_data']['digDownName'];?>';
+OP_MAIL_NOTIFY = <?php echo $_SESSION['domain_data']['mailNotify'];?>;
+OP_ACCOUNT_ORDER = '<?php echo $_SESSION['domain_data']['account_order'];?>';
+OP_DEL_STYLE = <?php echo $_SESSION['domain_data']['delStyle'];?>;
+OP_DESC_WORD = '<?php echo $_SESSION['domain_data']['descWord'];?>';
+OP_DEFAULT_SORT = <?php echo $_SESSION['domain_data']['defaultSort'];?>;
+OP_HAS_BINDED_SINA = (SINA_ACCESS_TOKEN != '');
+OP_DEFAULT_PROFILE = '<?php echo $_SESSION['domain_data']['default_profile'];?>';
+OP_DOMAIN_NAME = '<?php echo $_SESSION['domain_data']['domain_name'];?>';
+OP_ANON_URL = '<?php echo $_SESSION['domain_data']['anon_url'];?>';
+SNSTypeToName['EMAIL'] = '<?php echo $_SESSION['domain_data']['anon_word'];?>';
+OP_STYLE_NUM = <?php echo $_SESSION['domain_data']['styleNum'];?>;
+
+</script>
+
+
+<link href="../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../css/boxy.css" rel="stylesheet" type="text/css" />
+<link href="../css/admin.css" rel="stylesheet" type="text/css" />
+<link href="../css/homepage.css" rel="stylesheet" type="text/css" />
+<link href="../css/admin_edit.css" rel="stylesheet" type="text/css" />
+<div class="contentWrapper">
+    <!--menu-->
+    <div class="categoryMenuTopWrapper">
+        <div class="categoryMenuTopContainer">
+        <div class="siteNameContainer" id="siteNameContainer"><?php echo $_SESSION['showDomain'];?> <?php if($verify!=1){
+          echo '<span class="verifyState">[请验证域名所属，在插入评论框代码后将自动验证]</span>';				
+        }?></div>
+            <a class="menuTopButton menuTopCurrent" >安装与设置</a>
+            <a class="menuTopButton" href="/index.php/youyan_admin_trace_user/index/">统计与分析</a>
+            <a class="menuTopButton" href="/index.php/youyan_admin/index/">评论管理</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+<div class="contentContainer">
+<?php /*?><div class="backWrapper">
+
+<a class="backEditBTN"  href="/index.php/youyan_admin/index/"><?php echo $_SESSION['showDomain'];?> 管理</a> > 修改代码
+<div class="clear"></div>
+</div><?php */?>
+<div class="editNavigationContainer">
+<a class="naviBTN naviBTNCurrent" onClick="showNavi('install')" id="install">安装代码</a>
+<a class="naviBTN" onClick="showNavi('plugin')" id="plugin">热榜插件</a>
+<a class="naviBTN" onClick="showNavi('setting')" id="setting">修改设置</a>
+<a class="naviBTN" onClick="showNavi('visual')" id="visual">视觉样式</a>
+<a class="naviBTN" onClick="showNavi('example')" id="example">样例与反馈</a>
+<div class="clear"></div>
+</div>
+<div id="visualEdit">
+
+    <div class="introCSSInput">输入CSS修改样式细节</div>
+    <div class="visualInputWrapper">
+        <div class="designPaneWindow">
+            <div class="designPaneTop"></div>            
+            <div id="showMid" class="designPaneMid">
+                <textarea name="createCSS" id="createCSS"   ><?php if(file_exists("user_css/".$_SESSION['showDomain'].".css")){ echo file_get_contents("user_css/".$_SESSION['showDomain'].".css");}?></textarea>
+            </div>   
+        </div>    
+        <div class="rightStyleIntro"><a href="youyan_download/getCSS" class="downloadSample">下载样例</a><div class="rightStyleSampelIntro">样例中为部分样式说明，也可以通过Firebug等插件直接读取评论框css,并将更改内容写至左侧。</div></div>
+
+        <div class="clear"></div>
+    </div>
+    <div class="externalIntro">
+要引用其它CSS样式可以书写为: @import url(http://CSS文件所在地址); </div>
+    <a class="showCodeBTN" onClick="createCSS()" id="saveStyle" >保存样式</a>
+    <div class="clear"></div>
+</div>
+<div id="stepTwoWrapper">
+        <div class="designPaneWrapper_edit">        
+            <div class="designPaneEditRight">
+                <div class="editFrameTitle">评论框样式(置顶的登陆方式，在功能区有额外的登录按钮)</div>
+                <div class="selectStylePane">
+                    <div class="selectStyleItem simpleStyle">
+                        <div class="selectStyleAction">
+                            <input type="radio" class="selectStyleRadio" name="selectStyleRadio" checked="checked" id="selectStyleRadio3" value="0" />
+                            <div class="selectStyleRadioIntro">facebook风格</div>
+                            <div class="clear"></div>
+                         </div>
+                    </div>
+                    <div class="selectStyleItem standardStyle">
+                        <div class="selectStyleAction">
+                            <input type="radio" class="selectStyleRadio" name="selectStyleRadio" id="selectStyleRadio4" value="1" />
+                            <div class="selectStyleRadioIntro">disqus风格</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>            
+                <div class="editFrameTitle">置顶登录排序(置顶的登陆方式，在功能区有额外的登录按钮)</div>
+                <div class="editTitleWordsWrapper">
+                        <div class="loginPaneLeft">
+                            <div class="connecntMenuTop">
+                                <a onClick="hideMenu(this, &quot;comment&quot;)" style="padding-left:0; text-align:center;width:126px; cursor:default;" class="closeMenu">未置顶</a>
+                                <div class="itemsListContainer">
+                                    <div id="unselectItemsTopAdd"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="loginPaneRight">
+                            <div class="connecntMenuTop">
+                                <a onClick="hideMenu(this, &quot;comment&quot;)" class="closeMenu" style="padding-left:0; text-align:center;width:166px; cursor:default;">当前置顶</a>
+                                <div class="itemsListContainer"> 
+                                    <div id="selectedItemsTopAdd"></div>
+                                </div>
+                            </div>
+                        </div>  
+
+                        <div class="clear"></div>
+                    </div>
+                <div class="editFrameTitle">菜单登录排序</div>
+                <div class="editTitleWordsWrapper">
+                        <div class="loginPaneLeft">
+                            <div class="connecntMenu">
+                                <a onClick="hideMenu(this, &quot;comment&quot;)" style="padding-left:0; text-align:center;width:126px; cursor:default;" class="closeMenu">未选择</a>
+                                <div class="itemsListContainer">
+                                    <div id="unselectItemsAdd"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="loginPaneRight">
+                            <div class="connecntMenu">
+                                <a onClick="hideMenu(this, &quot;comment&quot;)" class="closeMenu"  style="padding-left:0; text-align:center;width:166px; cursor:default;">当前类别</a>
+                                <div class="itemsListContainer"> 
+                                    <div id="selectedItemsAdd"></div>
+                                </div>
+                            </div>
+
+                        </div>  
+                        <div class="clear"></div>
+                    </div>
+                <div class="editFrameTitle">设置默认头像</div>
+                <div id="inserImagePane">
+                    <div id="inserImageTitle" class="dialogTitleWrapper"><span class="dialogTitleInner">上传头像</span><a class="close closediag" href="#"></a></div>
+                    <div class="uploadImageWrapper">
+                    <img src="<?php echo $_SESSION['domain_data']['default_profile'];?>" class="uploadLoadImage" width="50px" height="50px"/>
+                    <div class="inserImageWrapper">
+                        <div class="uploadImageWrapDone">
+                            <form id="uploadImageAction" method="POST" enctype="multipart/form-data" target="upload_iframe" action="youyan_upload_image">
+                            <input type="hidden" name="domain_upload" id="domain_upload" value="<?php echo $_SESSION['showDomain'];?>"/>
+                            <input type="hidden" name="fileframe" value="true" />
+                            <input type="file" id="uploadImage" class="uploadImage" name="uploadImage" onchange="submitImage(this);" />     
+                            <input type="submit" id="upload_button" value="save file" disabled style="display:none;"/>
+                            </form>
+                            <iframe name="upload_iframe" style="width: 300px; height: 140px; display:none;"></iframe>
+                        <div id="upload_status">支持格式 JPG/PNG/GIP/BMP</div>
+                        <div class="upload_intro">请修正大小为50px*50px以保证清晰</div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="designPaneEditLeft">
+<br/>
+                <div class="editFrameTitle">框体宽度</div>
+                    <div class="editFramContainer"><input type="radio" name="widthRadio" id="widthRadio" value="0" onClick="$('#pixelWidth').css({'display':'none'});$('.introText').css({'display':'none'});" checked /><div class="introTextRadio">自适应</div><input type="radio" name="widthRadio" id="diyWidth" value="1" onClick="$('#pixelWidth').css({'display':'block'});$('.introText').css({'display':'block'});" /><div class="introTextRadio">定义宽度</div><input type="text" name="pixelWidth" id="pixelWidth" /><div class="introText">像素</div><div class="clear"></div></div>
+                <div class="editFrameTitle">每页显示评论条数</div>
+                    <select id="selectItemAmount" name="selectItemAmount" onchange= "changeItemAmount(this);">
+                        <option value="1">1条</option>
+                        <option value="3">3条</option>
+                        <option value="5">5条</option>
+                        <option selected="selected" value="10">10条</option>
+                        <option value="20">20条</option>
+                        <option value="50">50条</option>
+                    </select>
+
+                <div class="editFrameTitle">评论框标题文字</div>
+                <div class="editFramContainer">
+                    <input type="text" name="titleWords" id="titleWords" value="留言与交流" />
+                   <div class="clear"></div>
+                 </div>
+
+                <div class="editFrameTitle">评论默认排序方式</div>
+                <div class="editFramContainer">
+                    <input type="radio" name="sortRadio" id="alldel" class="digRadio" value="0"  checked />
+                    <div class="introTextRadio digPositionChange">按时间</div>
+                    <input type="radio" name="sortRadio" id="disdel" class="digRadio" value="1"  />
+                    <div class="introTextRadio">按热度</div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="editFrameTitle">字数上限</div>
+                    <div class="editFramContainer">
+                        <input type="radio" name="limitRadio" id="limitRadio" value="0" onClick="$('#limitNumber').css({'display':'none'});$('.limitIntroText').css({'display':'none'});"  />
+                        <div class="introTextRadio">无上限</div>
+                        <input type="radio" name="limitRadio" id="diyLimit" value="1" onClick="$('#limitNumber').css({'display':'block'});$('.limitIntroText').css({'display':'block'});" checked />
+                        <div class="introTextRadio">自定义上限</div>
+                        <input type="text" name="limitNumber" value="280" id="limitNumber" />
+                        <div class="limitIntroText">字</div><div class="clear"></div>
+                    </div>
+
+          <script language="javascript" type="text/javascript">
+          $("#widthRadio").attr("checked","checked");
+$("#limitRadio").attr("checked","checked");
+</script>
+
+                    <div class="editFrameTitle">推荐模式</div>
+                        <div class="editDigContainer">
+                        <input type="radio" name="digRadio" id="onlyDig" class="digRadio" value="0"  checked />
+                        <div class="introTextRadio digPositionChange">只可"<span class="upAl">顶</span>"</div>
+                        <input type="radio" name="digRadio" id="bothDig" class="digRadio" value="1"  />
+                        <div class="introTextRadio">允许"<span class="upAl">顶</span>"与"<span class="downAl">踩</span>"</div>
+                        <div class="clear"></div>
+                    </div>                      
+                    <div class="editDigContentWrapper">
+                        <div class="editDigLeft">关键词</div>
+                        <input type="text" name="digName" id="digName" class="digName" onBlur="changeDigState();" value="顶" />
+                        <div class="editDigLeft" id="digConnect">与</div>
+                        <input type="text" name="digDownName" id="digDownName" onBlur="changeDigState();" class="digName" value="踩" />
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="editFrameTitle">评论删除模式</div>
+                    <div class="editFramContainer">
+                        <input type="radio" name="delRadio" id="alldel" class="digRadio" value="0"  checked />
+                        <div class="introTextRadio digPositionChange">被删除的评论及其回复均不显示</div><div class="clear"></div>
+                        <input type="radio" name="delRadio" id="disdel" class="digRadio" value="1"  />
+                        <div class="introTextRadio">被删除的评论文字替换为"已被删除"</div>
+                        <div class="clear"></div>
+                    </div> 
+
+                    <div class="editFrameTitle">匿名用户默认链接</div>
+                    <div class="editFramContainer">
+                        <input type="text" name="anon_url" id="anon_url" value="http://uyan.cc" />
+                        <div class="clear"></div>
+                    </div> 
+
+                    <div class="editFrameTitle">网站名</div>
+                    <div class="editFramContainer">
+                        <input type="text" name="domain_name" id="domain_name" />
+                        <div class="clear"></div>
+                    </div>                       
+<br/>
+                    <div class="editFrameTitle">新评论邮件提醒</div>
+                    <div class="editCheckEmailWrapper">
+                        <input type="checkbox" name="checkAlertEmail" id="checkAlertEmail" onClick="if($('#checkAlertEmail').attr('checked')==true){moreEmail('more');}else{moreEmail('less');}"  />
+                        <div class="checkEmailIntro">当网站有新评论时邮件提醒我</div>
+                        <div class="clear"></div>
+                    </div>    
+            <div class="clear"></div>   
+                </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="submitSettingWrapper">
+            <a class="submitAllSettingEdit showCodeBTN" id="allSav" onClick="changeSettingBTNstate(this,'allSav');generateCodeShow();">保存设置</a>
+            <div class="clear"></div>
+        </div>
+</div>
+<div id="installWrapper">
+    <div class="navigationInstall">
+        <a class="installNavi installNaviSelected" onClick="changeInstallNav('plugin',this)">Wordpress插件</a><a class="installNavi" onClick="changeInstallNav('general',this)">通用代码</a>
+        <span class="installNavIntro">(通用代码适用于任何网站)</span>
+        <div class="clear"></div>
+    </div>
+    <div id="generalInstallWrapper">
+        <h3 class="introductionTitle">Step 1 将如下代码插入到网站中需要评论框的位置中</h3>
+        <div id="showCodePane">
+            <div class="codePaneWindow">            
+                <div class="designPaneTop"></div>
+                <div class="designPaneMid">
+                <textarea class="getCodePane" onClick="select()" id="text0" wrap="off" rows="5"><!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://uyan.cc/js/iframe.js?UYUserId=<?php echo $_SESSION['uid']?>" async=""></script>
+<!-- UY END --></textarea>
+                <div class="designPaneCodeArrow"></div>
+            </div>
+            </div>
+        </div>
+
+        <div class="introductionCode">
+            <div class="introductionTitle">Step 2 放置修正文件到网站的根目录中</div>     
+            <div class="introductionContent">文件为修正评论框需要，不添加将会出现评论框高度无法自适应等问题。<br/>请将其放置到您的网站的根目录中，勿更改文件名。 </div>
+            <a href="http://uyan.cc/index.php/youyan_download" class="downloadLink">点击下载修正文件</a>
+            <div class="clear"></div>
+            <div class="introductionTitle relevantTitle">Step 3 设置判断独立页面的参数（可选）</div>
+            <div class="introductionContent">程序默认将每个URL识别为独立的评论页面，如果您遇到错误的识别, 希望多个页面使用同一个评论框, 或者页面为模板动态生成，请在javascript中赋予全局变量UYId页面辨别参数。UYId可以为动态生成的值。例如: UYId = &lt;?php echo $_GET[’page’];?&gt;;</div>      
+            <code class="introCodeWrapper">
+                <div class="lineF">&lt;meta name="UYId" content="评论框标识ID" /&gt;</div>
+            </code>
+
+            <div class="introductionHelp">如果您在添加过程中遇到任何问题，请随时联系我们： <a class="mailLink" href="mailto:codehelp@uyan.cc">help@uyan.cc</a></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="wordpressInstallWrapper">
+        <div id="pluginPane">         
+           <div class="pluginRightPane">
+               <div id="wordpressPlugin">
+                   <h2>WordPress插件安装步骤</h2>                    
+                   <h3>Step 1 获取友言插件并安装</h3>
+                   <p>如果您正在使用WordPress 2.7及以上版本，请登录WordPress管理系统后，在左侧菜单选择"<strong>插件</strong>">"<strong>安装插件</strong>"，搜索"<strong>youyan</strong>"找到插件选择安装。<br/><br/>如果无法正常安装或者WordPress版本较老，请点击<a href="http://wordpress.org/extend/plugins/youyan-social-comment-system/" target="_blank" class="pluginDowload">下载插件</a>，并在你的WordPress插件文件夹中解压。<br/><br/>
+        <span class="contentIntro">WordPress的默认插件文件夹在/path/to/wordpress/wp-content/plugins/</span><br/>
+        <span class="contentIntro">你应当将全部文件放置在/path/to/wordpress/wp-content/plugins<strong>/youyan-social-comment-system/</strong>(文件夹名不能更改)</span><br/>
+                   </p>
+                   <h3>Step2 激活友言插件</h3>
+                   <p>安装成功后，请在"<strong>插件</strong>"中启用它之后在WordPress控制面板的左侧的评论里选择“友言评论系统“。登录您在友言的帐号，并在设置代码中点击"保存设置"后即可正常使用社交评论系统。
+                   </p>
+                   <h3><strong>Step3 上传修正文件</strong></h3>
+                   <p>请将修正文件下载后上传至网站根目录，以保证评论框的正常使用。<a href="http://uyan.cc/index.php/youyan_download" class="pluginDowload">点击下载修正文件</a><br/>
+                   未放置文件或者文件位置错误将导致评论框高度无法自适应等问题。
+                   </p>
+                   <h2>完全社交化设置步骤</h2> 
+                   <div class="introTotalSNS">
+                   <div class="introTotalSNSTitle">完成设置后，网站会获得三种社交特性：</div>
+<div class="introTotalSNSLine">1.博客文章自动同步至您的官方微博。</div>
+<div class="introTotalSNSLine">2.网友在官方微博的评论自动同步至您的网站。</div>
+<div class="introTotalSNSLine">3.网站的评论者将转发文章到评论者的微博。</div>
+
+                   </div>
+                   <h3>Step 1 获得新浪微博APPKEY</h3>
+                   <p>登录您的官方微博帐号后，打开<a href="http://open.weibo.com/website.php" target="_blank" class="pluginDowload">新浪微博开放平台</a>，在右侧点击申请Appkey按钮，填写网站基本信息表格后，在”<strong>我的应用</strong>“中获得网站对应的App key与App secret。</p>                   
+                   <h3>Step 2 设置友言绑定</h3>
+                  <p> 在Wordpress的友言设置界面中找到”<strong>绑定SNS</strong>”标签栏，打开后输入Appkey与Secretkey，选择保存Appkey。再点击”绑定新浪微博”按钮，绑定至刚申请App key的官方帐号。（注意一定要按照先输入Appdkey与Secretkey再绑定的顺序来操作）</p> 
+                  <p>至此您应当可以流畅的使用友言评论系统了，如果要绑定腾讯微博，操作有绑定新浪微博步骤一致，祝您使用愉快。<br /><br />如在使用过程中出现任何问题，欢迎随时发邮件给我们 help@uyan.cc 或 QQ:1735067958</p>
+
+               </div>
+           </div>
+           <div class="clear"></div>
+        </div>   
+    </div>
+</div>
+<div id="installPlugin">
+    <div class="navigationInstall">
+        <a class="installPluginNavi installPluginNaviSelected" onClick="changeInstallPluginNav('hot',this)">全站评论热榜</a>
+        <a class="installPluginNavi" onClick="changeInstallPluginNav('new',this)">全站最新评论</a>
+        <a class="installPluginNavi" onClick="changeInstallPluginNav('hotArticle',this)">全站文章热榜</a>
+        <a class="installPluginNavi" onClick="changeInstallPluginNav('newArticle',this)">全站最新文章</a>
+        <div class="clear"></div>
+    </div>
+
+    <div id="hotInstallWrapper">
+        <div class="introductionTitle">将下面代码复制到网站中，即可生成网站的评论热榜</div>  
+        <div id="showCodePane">        
+            <div class="codePaneWindow">            
+                <div class="designPaneTop"></div>
+                <div class="designPaneMid">
+                <textarea class="getCodePane" onClick="select()" id="text0" wrap="off" rows="5"><!-- UY BEGIN -->
+<div id="uyan_list_hotness_frame"></div>
+<script type="text/javascript" id="UYScriptHotness" src="http://uyan.cc/js/iframe_hotness_list.js?UYUserId=<?php echo $_SESSION['uid']?>&rankType=hotness" async=""></script>
+<!-- UY END --></textarea>
+                <div class="designPaneCodeArrow"></div>
+            </div>
+            </div>
+        </div>
+        <div class="settingWrapper">
+            <div class="pluginSettingTitleWhole">榜单设置</div>
+            <div class="settingPluginItem">
+                <div class="pluginSettingTitle">显示条数</div>
+                <input type="text" class="pluginSettingInput" id="hotCommentSetting" value="<?php echo $_SESSION['domain_data']['commentHotAmount'];?>"/>
+            </div>
+            <a class="submitAllSettingEdit showCodeBTN" id="hotCommentSav" onclick="saveAmount('hotCommentSetting');changeSettingBTNstate(this,'hotCommentSav')">保存设置</a>
+        </div>
+
+    </div>
+
+    <div id="newInstallWrapper">
+        <div class="introductionTitle">将下面代码复制到网站中，即可生成网站最新评论榜</div>  
+        <div id="showCodePane">        
+            <div class="codePaneWindow">            
+                <div class="designPaneTop"></div>
+                <div class="designPaneMid">
+                <textarea class="getCodePane" onClick="select()" id="text0" wrap="off" rows="5"><!-- UY BEGIN -->
+<div id="uyan_list_time_frame"></div>
+<script type="text/javascript" id="UYScriptTime" src="http://uyan.cc/js/iframe_time_list.js?UYUserId=<?php echo $_SESSION['uid']?>&rankType=time" async=""></script>
+<!-- UY END --></textarea>
+                <div class="designPaneCodeArrow"></div>
+            </div>
+            </div>
+        </div>  
+        <div class="settingWrapper">
+            <div class="pluginSettingTitleWhole">榜单设置</div>
+            <div class="settingPluginItem">
+                <div class="pluginSettingTitle">显示条数</div>
+                <input type="text" class="pluginSettingInput" id="timeCommentSetting" value="<?php echo $_SESSION['domain_data']['commentTimeAmount'];?>"/>
+            </div>
+            <a class="submitAllSettingEdit showCodeBTN" id="timeCommentSav" onclick="saveAmount('timeCommentSetting');changeSettingBTNstate(this,'timeCommentSav')">保存设置</a>
+        </div>
+    </div>
+    <div id="newArticleInstallWrapper">
+        <div class="introductionTitle">将下面代码复制到网站中，即可生成网站最新文章榜</div>  
+        <div id="showCodePane">        
+            <div class="codePaneWindow">            
+                <div class="designPaneTop"></div>
+                <div class="designPaneMid">
+                <textarea class="getCodePane" onClick="select()" id="text0" wrap="off" rows="5"><!-- UY BEGIN -->
+<div id="uyan_list_article_time_frame"></div>
+<script type="text/javascript" id="UYScriptArticleTime" src="http://uyan.cc/js/iframe_article_time_list.js?UYUserId=<?php echo $_SESSION['uid']?>&rankType=time" async=""></script>
+<!-- UY END --></textarea>
+                <div class="designPaneCodeArrow"></div>
+            </div>
+            </div>
+        </div> 
+        <div class="settingWrapper">
+            <div class="pluginSettingTitleWhole">榜单设置</div>
+            <div class="settingPluginItem">
+                <div class="pluginSettingTitle">显示条数</div>
+                <input type="text" class="pluginSettingInput" id="timeArticleSetting" value="<?php echo $_SESSION['domain_data']['articleTimeAmount'];?>"/>
+            </div>
+            <a class="submitAllSettingEdit showCodeBTN" id="timeArticleSav" onclick="saveAmount('timeArticleSetting');changeSettingBTNstate(this,'timeArticleSav')">保存设置</a>
+        </div> 
+    </div>
+    <div id="hotArticleInstallWrapper">
+        <div class="introductionTitle">将下面代码复制到网站中，即可生成网站全部文章的热榜</div>  
+        <div id="showCodePane">        
+            <div class="codePaneWindow">            
+                <div class="designPaneTop"></div>
+                <div class="designPaneMid">
+                <textarea class="getCodePane" onClick="select()" id="text0" wrap="off" rows="5"><!-- UY BEGIN -->
+<div id="uyan_list_article_hotness_frame"></div>
+<script type="text/javascript" id="UYScriptArticleHotness" src="http://uyan.cc/js/iframe_article_hotness_list.js?UYUserId=<?php echo $_SESSION['uid']?>&rankType=hotness" async=""></script>
+<!-- UY END --></textarea>
+                <div class="designPaneCodeArrow"></div>
+            </div>
+            </div>
+        </div> 
+        <div class="settingWrapper">
+            <div class="pluginSettingTitleWhole">榜单设置</div>
+            <div class="settingPluginItem">
+                <div class="pluginSettingTitle">显示条数</div>
+                <input type="text" class="pluginSettingInput" id="hotArticleSetting" value="<?php echo $_SESSION['domain_data']['articleHotAmount'];?>"/>
+            </div>
+            <a class="submitAllSettingEdit showCodeBTN" id="hotArticleSav" onclick="saveAmount('hotArticleSetting');changeSettingBTNstate(this,'hotArticleSav')">保存设置</a>
+        </div>  
+    </div>
+
+
+</div>
+<div id="exampleWrapper">
+<div class="feedWrapper">
+    <div class="designPaneWindow">
+         <div class="designPaneTop"></div>
+         <div class="designPaneMid" id="showMid">
+            <!-- UY BEGIN -->
+            <div id="uyan_frame"></div>
+            <script type="text/javascript" id="UYScript" src="http://uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+            <!-- UY END -->     
+         </div>             
+    </div>
+    <div class="feedRightIntro">
+        <div class="feedIntroLine">您可以在左侧试用评论功能或是写下反馈，您的意见是对我们莫大的支持。<br/><br/>友言客服邮箱 admin@uyan.cc <br/></div>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+
+</div>    
+</div>
+          <script language="javascript" type="text/javascript">
+          <?php if(isset($_SESSION['uid'])){?>
+          UYUserID = '<?php echo $_SESSION['uid'];?>';<?php }?>
+          if(OP_SELECTED_IDX =='')
+            $('#selectItemAmount')[0].selectedIndex = 3;
+          else
+            $('#selectItemAmount')[0].selectedIndex = OP_SELECTED_IDX;
+
+if(OP_WIDTH == '' || OP_WIDTH < 0 ){
+  $("input[name='widthRadio'][value=0]").attr("checked",true);
+}
+else{
+  $("input[name='widthRadio'][value=1]").attr("checked", true);
+  $('#pixelWidth').css({'display':'block'});$('.IntroText').css({'display':'block'});
+  $('#pixelWidth').val(OP_WIDTH);
+}
+
+if(OP_LIMIT == '' || OP_LIMIT < 0){
+  $("input[name='limitRadio'][value='0']").attr("checked",true);
+}
+else{
+  $("input[name='limitRadio'][value='1']").attr("checked",true);
+  $('#limitNumber').css({'display':'block'});$('.limitIntroText').css({'display':'block'});
+  $("#limitNumber").val(OP_LIMIT);
+}
+
+if(OP_STYLE == 0)
+  $("input[name='digRadio'][value='0']").attr("checked",true);
+else
+  $("input[name='digRadio'][value='1']").attr("checked",true);
+
+if(OP_DIG != ''){
+  $('.upAl').html(OP_DIG);
+  $('#digName').val(OP_DIG);
+}
+
+if(OP_DIGDOWN != ''){
+  $('.downAl').html(OP_DIGDOWN);
+  $("#digDownName").val(OP_DIGDOWN);
+}
+
+if(OP_MAIL_NOTIFY <= 0){
+  moreEmail('less');
+}
+else{
+  $("#checkAlertEmail").attr('checked', true);
+  moreEmail('more');
+  $("#emailAmount").val(OP_MAIL_NOTIFY);
+}
+
+if(OP_DEL_STYLE == 0)
+  $("input[name='delRadio'][value='0']").attr("checked",true);
+else
+  $("input[name='delRadio'][value='1']").attr("checked",true);
+
+if(OP_DESC_WORD != '')
+  $("#titleWords").val(OP_DESC_WORD);
+
+if(OP_DEFAULT_SORT == 0){
+  $("input[name='sortRadio'][value='0']").attr("checked",true);
+}
+else
+  $("input[name='sortRadio'][value='1']").attr("checked",true);
+
+$("#domain_name").val(OP_DOMAIN_NAME);
+$("#anon_url").val(OP_ANON_URL);
+
+
+
+if(OP_STYLE_NUM == 3){
+  $("input[name='selectStyleRadio'][value='0']").attr("checked", true);
+}else{
+  $("input[name='selectStyleRadio'][value='1']").attr("checked", true);
+}  
+
+/*if(OP_HAS_BINDED_SINA == 1){
+  document.getElementById("changeToConnected").style.display="none";
+  document.getElementById("connectWrapper").style.display="none";
+  document.getElementById("connectWrapperConnected").style.display="block";
+}*/
+
+buildAccountOrderList(OP_ACCOUNT_ORDER);
+
+/*remote = '<?php echo isset($_SESSION['uyan_remote']);?>';
+if(remote == 'true'){*/
+  var UYWpAdminSocket = new easyXDM.Socket({
+    onMessage: function(message, origin){
+      UYWpAdminSocket.postMessage(document.body.clientHeight || document.body.offsetHeight || document.body.scrollHeight);
+    }
+  });
+//}
+
+
+</script>

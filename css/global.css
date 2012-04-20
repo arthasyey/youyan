@@ -1,0 +1,147 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body, div, label, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, p, blockquote, th, td {
+	border:0 none;
+	margin:0;
+	outline:0 none;
+	padding:0;
+	font-family:微软雅黑,黑体,SimSun;
+	word-wrap:break-word;
+}
+html{
+}
+li a{
+	text-decoration:none;
+}
+h2{
+	font-weight:100;
+}
+.clear{
+	clear:both;
+	height:0;
+	overflow:hidden;
+}
+body{
+	margin:0;
+	padding:0;
+	background-position:top;
+}
+.headerContainer{
+	width:980px;
+	margin:0 auto;
+}
+.headerWrapper{
+	height:39px;
+	background:url(../images/topWrapper.png) 0 0 repeat-x;
+}
+.logoPart{
+	float:left;	
+	background:url(../images/logoNormal.png) 0 0 repeat-x;
+	width:117px;
+	height:39px;
+	cursor:pointer;
+	display:block;
+	text-decoration:none;
+}
+.loggedinRight{
+	float:right;	
+	padding-right:5px;
+}
+a.topNaviItem{
+	text-align:center;
+	font-family:微软雅黑,黑体,simsun;
+	_font-family:simsun;
+	width:115px;
+	height:31px;
+	display:block;
+	float:left;
+	font-size:14px;
+	padding-top:8px;
+	_padding-top:12px;
+	_height:27px;
+	cursor:pointer;
+	text-decoration:none;
+	color:#fff;
+}
+a:hover.topNaviItem{
+	background-color:#636363;
+	
+}
+a.topNaviName{
+	text-align:center;
+	font-family:微软雅黑,黑体,simsun;
+	width:125px;
+	height:31px;
+	display:block;
+	float:left;
+	font-size:14px;
+	padding-top:8px;
+	_padding-top:12px;
+	cursor:default;
+	text-decoration:none;
+	color:#ccc;	
+}
+.centerFirst{
+	padding:10px 0 3px 0;
+	text-align:center;
+	font-size:13px;
+	color:#666;
+}
+.centerFirst span{
+	padding:0 10px;
+}
+.centerFirst a{
+	padding:0 10px;
+	cursor:pointer;
+	color:#666;
+	text-decoration:none;
+}
+.centerScecond{
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#666;
+	padding-bottom:20px;
+}
+a.createCode{
+	float:left;
+	font-size:14px;
+	color:#fff;
+	font-family:微软雅黑,黑体, simsun;
+	text-decoration:none;
+	
+	text-align:center;
+	width:115px;
+	height:31px;
+	_height:27px;
+	padding-top:8px;
+	_padding-top:12px;
+}
+a:hover.createCode{
+	background-color:#636363;
+}
+
+.header{ height:28px; width:100%; background:#109db6; border-bottom:1px solid #c1f1f9;}
+.header_top{ width:980px; margin:0 auto;}
+.header_top a{ float:right; display:block; font-size:12px; text-decoration:none; color:#fff; line-height:28px; margin:0 6px;}
+.loginWrapper{float:right;width:276px; margin-top:14px;}
+.loginWrapper a{ display:block; float:left; color:#fff; line-height:30px; width:90px; overflow:hidden; text-align:center; font-size:14px; font-weight:bold; text-decoration:none;}
+.loginWrapper a:hover{ background:#109db6;border-radius:3px;}
+.menuSelected{ background:#109db6;border-radius:3px;}
+.loginWrapper span.jiao{ font-size:12px; padding-left:3px;}
+.radial{background-color: #3EBDD4;}
+.footer{background: url("../images/bottomTopLine.png") repeat-x scroll 0 0 #5c5c5c; height:96px; padding-top:20px;}
+.footer_bottom{ width:980px; margin:0 auto;}
+
+.morebutton{ border:1px solid #109DB6; width:88px; overflow:hidden; border-top:none;background:#fff; position:absolute; z-index:1111;  color:#7F7F7F;}
+.morebutton li{ display:block; height:30px; background:#FFF; padding:1px; color:#7F7F7F; text-align:center; }
+.morebutton li a{ display:block; line-height:30px; height:30px; overflow:hidden; text-align:center; width:100%; padding:0; cursor:pointer; font-weight:normal; color:#7F7F7F !important;}
+.morebutton li a:hover{background:#ACACAC; line-height:30px;border-radius:0px;  height:30px; color:#fff  !important; text-decoration:none; text-align:center;}
+
+.morebutton_btn{ border:1px solid #109DB6; width:309px; overflow:hidden; border-top:none;background:#fff; position:absolute; z-index:9;  color:#7F7F7F; margin:0 0 0 19px;}
+.morebutton_btn li{ display:block; height:30px; background:#FFF; padding:1px; color:#7F7F7F; text-align:center; }
+.morebutton_btn li a{ display:block; line-height:30px; height:30px; overflow:hidden; text-align:center; width:100%; padding:0; cursor:pointer; font-weight:normal; color:#7F7F7F !important;}
+.morebutton_btn li a:hover{background:#ACACAC; line-height:30px;border-radius:0px;  height:30px; color:#fff  !important; text-decoration:none; text-align:center;}
+
+.toolbox {clear:both; position:relative; height:100%;}
+.selected{ color:red; font-size:18px;}

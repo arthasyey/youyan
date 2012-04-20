@@ -1,0 +1,166 @@
+<script language="javascript" src="../../../js/global.js"></script>
+<script language="javascript" src="../../../js/jquery.boxy.js"></script>
+<script language="javascript" src="../../../js/youyan_view.js"></script>
+<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../../../js/excanvas.min.js"></script><![endif]-->
+<script language="javascript" src="../../../js/youyan_admin_view.js"></script>
+<script language="javascript" src="../../../jquery.ui/jquery-1.4.2.min.js"></script>
+<!--<script language="javascript" src="js/jquery.pagination.js"></script>-->
+<script language="javascript" type="text/javascript" src="../../../js/jquery.flot.min.js"></script>
+<script language="javascript" type="text/javascript" src="../../../js/jquery.flot.selection.min.js"></script>
+<script language="javascript">
+
+
+
+
+
+var domain;
+var UYUserID;
+var currentMore = 0;
+var currentPage = '<?php echo $article_domain[0]->page;?>';
+$("#shareLinkTo").ready(function(){
+	$("#shareLinkTo").html('页面: <?php echo $article_domain[0]->page_title;?>');
+});
+function bindToSNS(){
+  domain = '<?php echo $current_domain;?>';
+  UYUserID = '<?php echo $UYUserID;?>';
+  window.open('http://uyan.cc/index.php/sina_bind?UYUserID='+UYUserID+'&domain='+domain,'新浪微博','location=yes,left=200,top=100,width=600,height=400,resizable=yes');
+}
+
+function unbindToSNS(){
+  domain = '<?php echo $current_domain;?>';
+  UYUserID = '<?php echo $UYUserID;?>';
+  $.post('http://uyan.cc/index.php/sina_bind/unbind', {UYUserID: UYUserID, domain: domain}, function(data){
+    $("#unBindWrapper").css("display","block");	
+    $("#bindedWrapper").css("display","none");	
+  });
+}
+
+function verifyBinded(){
+  domain = '<?php echo $current_domain;?>';
+  UYUserID = '<?php echo $UYUserID;?>';
+  $.post('http://uyan.cc/index.php/sina_bind/verifyBind', {UYUserID: UYUserID, domain: domain}, function(data){
+    if(data == '1'){
+      $("#unBindWrapper").css("display","none");	
+      $("#bindedWrapper").css("display","block");	
+    }
+  });
+}
+
+</script>
+
+
+<link href="../../../css/global.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/boxy.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/admin.css" rel="stylesheet" type="text/css" />
+<div class="contentWrapper">
+
+	<!--menu-->
+    <div class="categoryMenuTopWrapper">
+    	<div class="categoryMenuTopContainer">
+            <div class="siteNameContainer" id="siteNameContainer"><?php echo $_SESSION['showDomain'];?>
+            <?php if($verify!=1){
+				echo '<span class="verifyState">[请验证域名所属，在插入评论框代码后将自动验证]</span>';				
+			}?>            
+            </div>
+            <a class="menuTopButton" href="/index.php/youyan_admin_edit">安装与设置</a>
+            <a class="menuTopButton" href="/index.php/youyan_admin_trace_user/index/">统计与分析</a>
+            <a class="menuTopButton menuTopCurrent" >评论管理</a>
+            <div class="clear"></div>
+        </div>
+    </div>    
+    <div class="contentContainer" id="basicContainer">
+        <div class="leftWrapper">
+        	<div class="leftmenuTitle"></div>
+            <a class="menuItem currentMenuItem" onclick="changeToDomain(this)" id="allPagesTab" title="全部页面">
+            	<div class="articleTitle">全部页面</div>
+                <div class="articleTime"></div>
+            </a>
+            <?php if($verify!=1){?>
+            <a class="menuItem" title="验证">
+            	<div class="articleTitle" style="font-size:12px; cursor:default;">域名验证后，<br/>您有评论的页面会在此处列出</div>
+                <div class="articleTime"></div>
+            </a>
+            <?php }?>
+        <?php 		
+		$startItem = 0;
+		foreach($article_domain as $row){?>
+        <?php if($row->page_title!=''){?>
+        <?php if($startItem ==0){?>
+           <a class="menuItem" onclick="changeToPage('<?php echo $row->page;?>','<?php echo $row->page_title;?>',this,'<?php echo $row->page_url;?>')" title="<?php echo $row->page_title;?>">
+        <?php }else{?>
+        	<a class="menuItem" onclick="changeToPage('<?php echo $row->page;?>','<?php echo $row->page_title;?>',this,'<?php echo $row->page_url;?>')" title="<?php echo $row->page_title;?>">
+        <?php }?>
+           		<div class="articleTitle"><?php echo mb_strimwidth($row->page_title,0,35,'..','utf-8');?></div>
+                <div class="articleTime"><?php echo $row->time;?> (评论 <?php echo $row->n_comments;?>)</div>
+           </a>
+  	    <?php  $startItem++;}}
+		echo ($pagination);?>
+        </div>
+        <div class="rightWrapper">
+			<div class="actionPaneWrapper" style="display:none;">
+            	<a class="shareLinks" onclick="getRightLink(currentPage);">发放页面管理权限</a>
+                <div class="clear"></div>
+            </div>
+            <div class="dataWrapper">
+            <span id="hidePageLink" style="display:none;"></span>
+                <div class="dataTitle"><div class="dataLeftTitleWrapper"><span class="dataLeftTitleTrace">全部页面</span><a href="#" class="linkTo" target="_blank" ></a><div class="clear"></div></div><a id="changeDataAll" onclick="prepareData('all')">全部时间</a><a id="changeDataYear" onclick="prepareData(365)">最近一年</a><a id="changeDataSix" onclick="prepareData(183)">最近六个月</a><a id="changeDataThree" onclick="prepareData(91)">最近三个月</a><a id="changeDataMonth" onclick="prepareData(30)">最近一个月</a><a id="changeDataSeven" onclick="prepareData(7)">最近七天</a><div class="clear"></div></div>
+
+                <div id="placeholder" style="width:680px;height:160px;"></div>
+            </div>
+            <!-- Basic information-->
+            <div id="messagesContainer">
+            <div class="messageTitleWrapper"><div class="TitleInBox">最新评论</div><div class="alertIcon">3</div><div class="clear"></div></div>
+<script language="javascript">
+<?php if($verify==1){?>
+	getMoreComment();
+	prepareData(7);
+<?php }else{?>
+	getEmptyComment();
+	prepareData(7);
+<?php }?>
+</script>
+<?php if(isset($article_domain)&&$article_domain!=''){?>
+<div id="afterMessage"></div>
+<div class="noMessageState" style="display:none;" >还有没来自用户的评论</div>		
+<div class="unGetmoreCommentBTN"  style="display:none;" >没有更多评论了</div>	
+<a class="getmoreCommentBTN" onclick="getMorePageComment('<?php echo $article_domain[0]->page;?>');" style="display:none;">查看更多</a>
+<?php }?>
+
+
+
+</div></div>    
+<div class="clear"></div>
+</div>    
+</div>
+<div id="createLinkPane">
+	<a class="close" href="#" id="closediag"></a>
+    <div id="shareLinkTo"></div>
+	<div class="introCreateLinkTitle">请将此链接发送给编辑，此链接具有编辑当前页面的权限。</div>
+    <div class="createLinkCode" contentEditable='true'>http://www.uyan.cc/index.php/youyan_admin_temp/index/PXIEOW312IESC/</div>
+</div>
+
+<script id="source" language="javascript" type="text/javascript">
+verifyBinded();
+$("#createLinkPane").ready
+(
+  function()
+  {
+	boxCreateLink=new Boxy($("#createLinkPane"), {
+		modal: false,
+		show: false
+	});	
+  }
+);
+
+<?php if(isset($_SESSION['uyan_remote'])){ ?>
+window.onload = function(){
+  parent.socket.postMessage(document.body.clientHeight || document.body.offsetHeight || document.body.scrollHeight);
+};
+<?php }?>
+
+</script>
+
+
+
+
+

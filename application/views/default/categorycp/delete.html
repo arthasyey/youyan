@@ -1,0 +1,38 @@
+<{include file="../admincp_header.html"}>
+<script language="javascript">
+function category_delete(id, result) {
+	if(result) {
+		//var ids = explode('_', id);
+		//var cid = ids[1];
+		//h('category_tr_'+ cid);
+		window.location.href = '<{$siteurl}>/categorycp/';
+	}
+}
+</script>
+<{if !$inajax}>
+<div class="title"><{$pagetitle}></div>
+<{/if}>
+
+<form method="post" id="deleteform_<{$cid}>" action="<{$siteurl}>/categorycp/delete/<{$cid}>">
+<div id="pop_content" class="pop_content" style="<{if $inajax}>width:450px;<{/if}>">
+    <div class="dialog_content">
+      <div class="dialog_body">
+	   该操作将删除此类别及其所有子类别，确定吗？
+      </div>
+      <div class="dialog_buttons clearfix">
+        <label class="uiButton uiButtonLarge uiButtonConfirm"> <{if $inajax}>
+<input type="button" name="deletesubmit_btn" id="deletesubmit_btn" value="确定" class="rb1-12" onmouseover="this.className='rb2-12';" onmouseout="this.className='rb1-12';" onclick="ajaxpost('deleteform_<{$cid}>','category_delete',1000)" />
+<{else}>
+<input type="submit" name="deletesubmit_btn" id="deletesubmit_btn" value="确定" class="rb1-12" onmouseover="this.className='rb2-12';" onmouseout="this.className='rb1-12';" />
+<{/if}></label>
+        <{if $inajax}>
+        <label class="uiButton uiButtonLarge uiButtonDefault">
+        <input type="button" onclick="hidedialog();" name="cancel" value="取消">
+        </label>
+        <{/if}> </div>
+    </div>
+  </div>
+<input type="hidden" name="deletesubmit" value="1" />
+<input type="hidden" name="formhash" value="<{formhash()}>" />
+</form>
+<{include file="../admincp_footer.html"}> 

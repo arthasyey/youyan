@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond $1 !^(index\.php|index\.html|resource/|54654_files/|ajax/|css/|design/|easyXDM/|images/|jquery.ui/|js/|msn_images/|phpmailer/|profile/|user_guide/|xml/|demo\.php|robots\.txt|favicon\.ico|user_css/|uploads)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+RewriteRule ^t/([0-9a-zA-Z]+)/([0-9a-zA-Z\.\-\_]+)([\/]?)$ /t/$1.php?d=$2&%{QUERY_STRING} [L,NC]
+</IfModule>

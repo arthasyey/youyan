@@ -1,0 +1,40 @@
+<{include file="../header.html"}>
+<div class="main">
+	<div class="headline">
+		<p>WordPress插件</p>
+	</div>
+	<!-- login sidebar-->
+	<div class="sidebar">
+		<div class="sidebar">
+			<div class="sidebar_nav">
+				<ul>
+					<li class="show" id="cms_menu_1" onclick="show_cms_menu('1');"><span class="txt"><a>安  装</a></span></li>
+				</ul>
+				<ul id="cms_ul_1">
+					<li class="show_a"><a href="<{$siteurl}>/getcode/wordpress/install/online" <{if $codecms.seourl eq 'online'}>style="color:#109db6;"<{/if}>>在线安装</a></li>
+					<li class="show_a"><a href="<{$siteurl}>/getcode/wordpress/install/download" <{if $codecms.seourl eq 'download'}>style="color:#109db6;"<{/if}>>下载安装</a></li>
+				</ul>
+				<div style="margin-top:15px; margin-bottom:5px"><a href="http://wpa.qq.com/msgrd?v=3&uin=1735067958&site=qq&menu=yes" target="_blank"><img src="/images/qqbig.png" width="121" height="40" alt="客服QQ" border="0" /></a></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<!-- login main_content-->
+	<div class="main_content"> <{$codecms.content}> </div>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript">
+function show_cms_menu(n){
+    var obj = document.getElementById("cms_menu_"+n);
+	var classname = obj.className;
+	var $j = jQuery.noConflict();
+	if(classname.indexOf("hide") == -1){
+		$j("#cms_ul_"+n).slideUp();
+		obj.className = "hide";
+	} else {
+		$j("#cms_ul_"+n).slideDown();
+		obj.className = "show";
+	}
+}
+</script>
+<{include file="../footer.html"}>

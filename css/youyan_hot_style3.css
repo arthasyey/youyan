@@ -1,0 +1,89 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:微软雅黑,黑体;
+	_font-family:SimSun;
+}
+.dotControl{
+	color:#888;	
+}
+a.UYSourceLink{
+	color:#6391e7;
+}
+.itemWrapper{
+	border-top: 1px solid #E9E9E9;
+    padding: 5px 0 5px 5px;
+}
+
+a.UYUpInfo{
+  padding:0px 14px 0 0;
+  font-size:12px;
+  color:#5f88ce;
+  float:left;
+  display:block;
+  cursor:pointer;
+  margin-right:0;
+  border:none;
+}
+.UYPhoto{
+  width:50px;
+  height:50px;
+  background:url(../images/photoDefault.png) 0 0 no-repeat;
+  float:left;
+  cursor:pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+a.UYDownInfo{
+  padding:0px 1px 0 0;
+  border:none;
+  font-size:12px;
+  color:#5f88ce;
+  float:left;
+  display:block;
+  cursor:pointer;
+  margin-right: 10px;
+
+}
+.replyFrom{
+	border:1px solid #ebebeb;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float:left;
+	padding: 0 10px 3px 8px;
+	background-color:#f5f5f5;
+	/*background:url(../images/from.png) 10px 7px #f5f5f5 no-repeat;*/
+	font-size:12px;
+	color:#7b7b7b;
+	height:14px;
+	margin: 5px 0 0 0;
+	_margin:5px 0 0 0;
+	overflow:hidden;
+	line-height: 16px;
+}
+a.fromLink{
+	font-size:12px;
+	color:#004378;
+	cursor:pointer;
+	text-decoration:none;
+}
+a:hover.fromLink{
+	text-decoration:underline;
+}
+.UYInfoWrapper{
+  float:left;
+  padding-left:5px;
+/*  width:525px;*/
+  width:120px;
+}
+.UYHotlistTitle {
+    color: #444444;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 0 0 5px;
+}
+.replyFrom{
+	overflow:hidden;	
+}

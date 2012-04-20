@@ -1,0 +1,182 @@
+<script language="javascript" src="../js/jquery.boxy.js"></script>
+<link href="../css/boxy.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="../js/jquery.pagination.js"></script>
+<script language="javascript" src="../js/youyan_basic_view.js"></script>
+<script language="javascript" src="../js/youyan_view.js"></script>
+<script language="javascript" src="../js/jquery.validate.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/pagination_style.css" media="screen"/>
+
+
+<script type="text/javascript">
+getPageDomain();
+getComments();
+ConnectAmount= 0;
+console.log("Connect amount: " + ConnectAmount);
+</script>
+
+<div class="container">
+    <div class="containerInner">
+        <div class="UYWrapper">    
+            <div class="UYPane">
+<!-- YY start-->   
+                <div class="UYTitle"><span id="UYTitleTXT"></span><span id="UYTitleAmount"></span></div>
+                <div class="UYInputWrapper">
+                    <div class="UYPhoto" id="UYinputPhoto"></div>
+                    <div class="UYInputAllPane">
+                        <div class="UYInputFrame" id="UYInputPane"  >                        	
+                            <textarea name='submitUY' id='submitUY' onblur = 'showIntro();' onfocus='hideIntro();showEmo();' onkeyup="$('#UYCurrentAmount').html(calc_rest($('#submitUY').val()));">我想说...</textarea>
+                        <div id="UYEmotionBTN" onclick="showEmotionPane()">表情</div>
+                        <div id="UYEmotionPane"></div>
+                            <div id='UYLeftNumber'><span id="UYCurrentAmount">280</span><span id="UYTotalAmount">/280</span></div>
+                        </div>
+                        <div class="UYMoreFunctionsWrapper">
+                        </div>
+
+                        <div id="UYalertNoConnection" class="UYalertPane">
+                            <div class="UYleftAlBar"></div>
+                            <div class="UYmidAlContent"><div class="UYalertImage"></div>
+                            <div class="UYalertInfo">请同步任意社交网络后发布评论，登录后可以设置为<strong>匿名</strong></div>
+                            <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="UYLeftArrow"></div>                    	
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                <div class="UYLiteProfileWrapper"></div>
+                <div class="UYEmptyBoxWrapper"></div>
+                <div class="UYShowList">
+                    <div class = "UYEmptyComment" style = "display:none"></div>
+                </div>
+                <div id="Pagination" class="pagination"></div>
+            </div>
+            <div class="clear"></div>       
+      </div>
+    </div>
+</div>
+
+<!-- for user login and signup YY-->
+<div id="UY_login">
+    <a class="close" href="#" id="closediagPre" onclick="hideWindows()"></a>
+    <div class="UY_signupWrapper">
+        <div class="UY_introPane"></div>
+        <div class="UY_signupPane">
+            <form id="signupForm" action="" method="post">
+              <div class="UY_signupTitle">注册友言帐号</div>
+              <div class="UY_inputPlace">        
+                <label id="UYUserNameLable" for="UYUserName" style="opacity: 1;">用户名</label>
+                <input type="text" id="UYUserName" name="UYUserName"/>
+              </div>
+              <div class="UY_inputPlace">        
+                <label id="UYEmailLable" for="UYEmail" style="opacity: 1;">Email</label>
+                <input type="text" id="UYEmail" name="UYEmail" />
+              </div>
+              <div class="UY_inputPlace">        
+                <label id="UYPasswordLable" for="UYPassword" style="opacity: 1;">密码</label>
+                <input type="password" id="UYPassword" name="UYPassword" />
+              </div>
+              <div class="UY_signupAlert">创建账户意味着您已同意<a href="#">使用条款</a>与<a href="#">隐私条款</a></div>
+              <input type="submit" id="UYSubmitSignup" value="" class="UYsignupBTN" />  
+             <div class="clear"></div>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+   <div class="UY_loginWrapper">
+        <div class="UY_loginPosition">
+            <div class="UY_inputPlace_login">
+            <label id="UYLoginEmailLable" for="UYLoginEmail" style="opacity: 1;">Email</label>
+            <input type="text" id="UYLoginEmail" name="UYLoginEmail" />
+            </div>
+            <div class="UY_inputPlace_login">        
+            <label id="UYLoginPasswordLable" for="UYLoginPassword" style="opacity: 1;">密码</label>
+            <input type="password" id="UYLoginPassword" name="UYLoginPassword" />        
+            </div>	
+            <a href="#" id="UYLoginBTN" onclick='loginUser()'></a>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div id="UY_Bind" >
+    <a class="close" href="#" id="closediagPre"></a>
+    <div class="UY_signupWrapper">
+        <div class="UY_introPane"></div>
+        <div class="UY_signupPane">
+        	<div class="UY_settingNavigation">
+            	<a class="UY_bindTitle_long_current" id="UY_bindTitle_long" onclick="UY_changeBindType('long')">创建新帐号并绑定</a>
+           		<a class="UY_bindTitle_short" id="UY_bindTitle_short" onclick="UY_changeBindType('short')">绑定已有帐号</a>
+                <div class="clear"></div>
+            </div>
+            <div id="UY_bindSignup">
+                <div class="UY_inputPlace">        
+                <label id="UYBindCUserNameLable" for="UYBindCUserName" style="opacity: 1;">用户名</label>
+                <input type="text" id="UYBindCUserName" name="UYBindCUserName" />        
+                </div>
+                <div class="UY_inputPlace">        
+                <label id="UYBindCEmailLable" for="UYBindCEmail" style="opacity: 1;">Email</label>
+                <input type="text" id="UYBindCEmail" name="UYBindCEmail" />
+                </div>
+                <div class="UY_inputPlace">        
+                <label id="UYBindCPasswordLable" for="UYBindCPassword" style="opacity: 1;">密码</label>
+                <input type="password" id="UYBindCPassword" name="UYBindCPassword" />
+                </div>
+                <div class="UY_signupAlert">创建账户意味着您已同意<a href="#">使用条款</a>与<a href="#">隐私条款</a></div><a href="#" id="UYBindCSubmitSignup" class="UYbindBTN" onclick ="bindSignupUser()"></a><div class="clear"></div>
+            </div>
+            <div id="UY_bindLogin">
+                <div class="UY_inputPlace">        
+                <label id="UYBindLEmailLable" for="UYBindLEmail" style="opacity: 1;">Email</label>
+                <input type="text" id="UYBindLEmail" name="UYBindLEmail" />
+                </div>
+                <div class="UY_inputPlace">        
+                <label id="UYBindLPasswordLable" for="UYBindLPassword" style="opacity: 1;">密码</label>
+                <input type="password" id="UYBindLPassword" name="UYBindLPassword" />
+                </div>
+                <a href="#" id="UYBindLSubmitSignup" class="UYbindLBTN" onclick ="bindLoginUser()"></a>
+                <div class="clear"></div>
+            </div>            
+            
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <div class="UY_loginWrapper">
+        <div class="UY_bindPosition">
+            <div id="UY_currentBindLogo"><div id="appendLogo"></div><div class="clear"></div></div>
+            <div class="UY_arrowRight"></div>
+            <div id="UY_targetBindLogo"></div>
+            <div class="UY_bindTargetIntro">绑定至友言</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+<script language="javascript" type="text/javascript">
+
+$("#UY_Bind").ready
+(
+  function()
+  {  	
+    boxBind=new Boxy($("#UY_Bind"), {
+      modal: false,
+        show: false
+    });	
+
+  }
+);
+
+$("#UY_login").ready( 
+  function(){
+    box=new Boxy($("#UY_login"), {
+      modal: false,
+        show: false
+    });	
+  });
+
+updateLoginInfo('<?php echo json_encode($_SESSION['login']);?>'); 
+
+APPPATH = '<?php echo APPPATH?>';
+
+</script>

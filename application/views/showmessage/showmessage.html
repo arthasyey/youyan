@@ -1,0 +1,32 @@
+<{include file="`$smarty.const.SMARTY_TEMPLATES_DIR`/`$smarty.const.THEME`/header.html"}>
+
+<link rel="stylesheet" type="text/css" href="<{$cssdir}>/message.css" />
+
+<{if $error}>
+<div style="text-align:center;padding:10px 0 30px 0;"><a href="<{$siteurl}>"><img align="absmiddle" src="<{$imgpath}>/message/404.jpg" border="0" /></a></div>
+<{else}>
+<div class="showmessage">
+  <div class="ye_r_t">
+    <div class="ye_l_t">
+      <div class="ye_r_b">
+        <div class="ye_l_b">
+          <h2>信息提示</h2>
+          <p>
+            <{$message}>
+          </p>
+          <p class="op"> 
+		  <{if $url_forward}>
+		  <a href="<{$url_forward}>">页面跳转中...</a> 
+		  <{else}>
+		  <a href="javascript:history.go(-1);">返回上一页</a> | 
+		  <a href="<{$siteurl}>">返回首页</a>
+		  <{/if}>
+		  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<{/if}>
+
+<{include file="`$smarty.const.SMARTY_TEMPLATES_DIR`/`$smarty.const.THEME`/footer.html"}>

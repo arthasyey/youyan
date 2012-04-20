@@ -1,0 +1,689 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* 整体样式:设置文本字体等相关样式*/
+.UYPane{
+	font-family:微软雅黑,黑体;
+	/*ie6字体修正为宋体*/
+	_font-family:SimSun;
+}
+.UYTitle{
+  font-size:13px;
+  font-weight:bold;
+  padding:1px 0 10px 0;
+  /*控制“留言于交流”是否显示*/
+  /*display:none;*/
+}
+/********************
+输入框样式
+*********************/
+.UYInputWrapper{
+  padding:10px 0 10px 10px;
+  background-color: #f1f1f1;
+  border-top:1px solid #ccc;
+  color:#4a649b;
+  position:relative;
+  z-index:6000;
+  *height:70px;
+  _height:40px;
+}
+#UYinputPhoto{
+  width:50px;
+  height:50px;
+  float:left;
+  background:url(../images/photoDefault.png) 0 0 no-repeat;
+}
+.UYInputAllPane{
+  float:left;
+  position:relative;
+  _margin-bottom:-20px;
+}
+.UYInputFrame{
+  border:1px solid #BDC7D8;
+  margin-left:10px;
+  position:relative;
+  padding:3px;
+  background-color:#fff;
+  z-index:1000000;
+}
+#submitUY{
+  font-size:13px;
+  width:510px;
+  line-height: 1.28;
+  text-align: left;
+  overflow:auto;
+  position:relative;
+  z-index:10000;
+  resize:none;  
+  background-color: transparent;
+  border-width: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  height:33px;
+  color: #777777;
+}
+.UYMoreFunctionsWrapper{
+	margin-left:7px;
+	border-top:1px solid #eee;
+	position:relative;
+	z-index:5000;
+}
+#UYSubmitInputBTN{
+  width:126px;
+  height:20px;
+  float:right;
+  margin:4px 0 0 0;
+  background:url(../images/subBTNBG.png)  0 0 no-repeat;
+  border:1px solid #999999;
+  cursor:pointer;
+  -moz-box-shadow:0 1px 0 #d9d9d9;
+  -webkit-box-shadow:0 1px 0 #d9d9d9;
+  box-shadow:0 1px 0 #d9d9d9;
+}
+.submitBTNText{
+	color:#444;
+	font-size:13px;
+	padding-left:50px;
+	line-height:21px;
+	font-weight:bold;
+}
+#UYLeftNumber, #UYRepyLeftNumber{
+  position:absolute;
+  right:10px;
+  bottom:2px;
+  font-size:15px;
+  color:#d2d2d2;
+  z-index:10;
+  _bottom:50px;
+}
+.UYLeftArrow{
+  width:10px;
+  height:18px;
+  position:absolute;
+  left:6px;
+  top:15px;
+  background:url(../images/arrowLeft.png) 0 0 no-repeat;
+  display:none;
+}
+/*下拉菜单样式*/
+.connecntMenu{
+	background-color: #fff;
+	z-index:999999;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 128px;
+}
+.closeMenu{
+	cursor:pointer;
+	height:21px;
+	width:75px;
+	border:1px solid #3b5998;
+	border-bottom:none;
+	color:#fff;
+	text-align:left;
+	padding-left:51px;
+	font-size:12px;
+	display:block;
+	line-height:21px;
+	font-weight:bold;
+	background:url(../images/clickDownArrow.png) 109px 8px no-repeat #6d84b4;
+}
+.itemsListContainer{
+	border-left:1px solid #777777;
+	border-right:1px solid #777777;
+	border-bottom:2px solid #293e6a;
+	padding:5px 0;
+}
+a.menuItem{
+	font-size:12px;
+	color:#555;
+	padding:2px 0 0 40px;
+	height:20px;
+	cursor:pointer;
+	display:block;
+	margin:0;
+	height:16px;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+}
+a:hover.menuItem{
+	border-top:1px solid #3b5998;
+	border-bottom:1px solid #3b5998;
+	background-color:#6d84b4;
+	color:#fff;
+}
+a.smallSINA{
+	background:url(../images/sinaSmall.png) 20px 0 no-repeat;
+}	
+a.smallDOUBAN{
+	background:url(../images/doubanSmall.png) 20px 0 no-repeat;
+}
+a.smallKAIXIN{
+	background:url(../images/kaixinSmall.png) 20px 0 no-repeat;
+}	
+a.smallTENCENT{
+	background:url(../images/tencentSmall.png) 20px 0 no-repeat;
+}
+a.smallEASYWEB{
+	background:url(../images/easywebSmall.png) 20px 0 no-repeat;
+}	
+a.smallSOHU{
+	background:url(../images/sohuSmall.png) 20px 0 no-repeat;
+}
+a.smallRENREN{
+	background:url(../images/renrenSmall.png) 20px 0 no-repeat;
+}	
+a.smallQZONE{
+	background:url(../images/qZoneSmall.png) 20px 0 no-repeat;
+}
+
+/*登录后输入框*/
+#UYSubmitInputBTNConnected{
+	width:126px;
+	height:20px;
+	float:right;
+	margin:4px 0 0 0;
+	background-color:#5f78ab;
+	border:1px solid #29447e;
+	cursor:pointer;
+	-moz-box-shadow:0 1px 0 #d9d9d9;
+	-webkit-box-shadow:0 1px 0 #d9d9d9;
+	box-shadow:0 1px 0 #d9d9d9;
+}
+a#UYLogoutBTN{
+	color:#6277c8;
+	font-size:12px;
+	text-decoration:none;
+	cursor:pointer;
+	float:right;
+	margin:9px 5px 0 0;
+}
+a.currentUserNameIntro{
+	color:#666;
+	font-size:12px;
+	float:right;
+	margin:9px 3px 0 0;
+	text-decoration:none;
+}
+.UYChooseConnect{
+	float:left;
+	padding:8px 0 0 3px;
+}
+.UYCheckBoxIntro{
+	float:left;
+	font-size:12px;
+	padding-left:5px;
+	color:#777;	
+}
+#UYConnectToSNS{
+	float:left;
+	margin:0;
+	padding:0;
+}
+.checkboxIntro{
+	float:left;
+	font-size:12px;
+	color:#666666;
+	padding:3px 0 0 0;
+}
+.submitBTNTextConnected{
+	color:#fff;
+	font-size:13px;
+	padding-left:50px;
+	line-height:21px;
+	font-weight:bold;
+}
+.logoutWrapper{
+	float:left;
+	padding:5px 0 0 0;
+}
+/****************************
+评论列表
+***************************/
+.UYShowList{
+	position:relative;
+	z-index:400;
+}
+.UYPhoto{
+  width:50px;
+  height:50px;
+  background:url(../images/photoDefault.png) 0 0 no-repeat;
+  float:left;
+}
+.UYInfo{
+  font-size:13px;
+  color:#303030;
+  line-height:18px;
+  min-height: 26px;
+}
+a.UYInfoLink{
+	font-weight:bold;
+	color: #3B5998;
+	font-weight:normal;
+	text-decoration:none; 
+}
+a.UYSourceLink{
+  color: #3B5998;
+  font-weight:normal;
+  text-decoration:none; 
+}
+a.UYInfoLink:hover, a.UYSourceLink:hover{
+  text-decoration:underline;
+}
+.dotControl{
+
+}
+.UYArrowHide{
+	display:none;
+}
+.UYInfoAction{
+  padding:6px 0 0 0;
+}
+.UYUpIconColor{
+  float:left;
+  width:13px;
+  height:13px;
+  margin-right:4px;
+  background:url(../images/upDigColor.png)  0 0 no-repeat;
+  cursor:pointer;
+  display:block;
+}
+a.UYUpIcon{
+  float:left;
+  width:13px;
+  height:13px;
+  margin-right:4px;
+  background:url(../images/upDig.png)  0 0 no-repeat;
+  cursor:pointer;
+  display:block;
+}
+a:hover.UYUpIcon{
+  opacity:0.7;
+}
+a.UYUpInfo{
+  padding:0px 14px 0 0;
+  border-right:1px solid #e2d4e2;
+  font-size:12px;
+  color:#5f88ce;
+  float:left;
+  display:block;
+  cursor:pointer;
+  margin-right:13px;
+}
+a:hover.UYUpInfo{
+  text-decoration:underline;
+}
+.UYupAmount{
+  color:#5F88CE;	
+}
+.UYUpInfo span{
+  padding-left:3px;
+}
+a.UYReply{
+  padding:0px 4px 0 0;
+  font-size:12px;
+  color:#5f88ce;
+  float:left;
+  display:block;
+  cursor:pointer;
+}
+.UYreplyAction{
+	position:relative;
+	*height:27px;
+}
+a:hover.UYReply{
+  text-decoration:underline;
+}
+a.UYDelItem{
+  padding:0px 4px 0 10px;
+  font-size:12px;
+  color:#5f88ce;
+  float:left;
+  display:block;
+  cursor:pointer;
+  margin-left:10px;
+  border-left:1px solid #E2D4E2;
+}
+a:hover.UYDelItem{
+  text-decoration:underline;
+}
+.UYSendTime{
+  padding:0px 10px 0px 13px;
+  font-size:12px;
+  color:#acacd0;
+  float:left;
+}
+
+/*一级评论列表*/
+.itemWrapper{
+  padding:15px 0 15px 10px;
+  border-top:1px solid #e9e9e9;
+  *padding:10px 0 1px 10px;
+  *height:1%;  
+}
+.UYInfoWrapper{
+  float:left;
+  padding-left:15px;
+  width:525px;
+}
+/*二级评论列表*/
+.itemWrapperSC{
+    border-top: 1px solid #E9E9E9;
+    padding: 15px 0 15px 10px;	
+	margin:0 0 0 65px;
+	*padding:10px 0 1px 10px;	
+	*height:1%;
+}
+.UYInfoWrapperSC{
+    float: left;
+    padding-left: 15px;
+    width: 455px;
+}
+
+/*阅读更多按钮*/
+a.UYMoreItemsWrapper{
+	width:100%;
+	height:23px;
+	border:1px solid #d8dfea;
+	display:block;
+	color:#3b5998;
+	font-size:13px;
+	background-color:#edeff4;
+	text-align:center;
+	padding:7px 0 0 0;
+	margin:5px auto;
+	cursor:pointer;
+	text-decoration:none;
+}
+a:hover.UYMoreItemsWrapper{
+	background-color:#d8dfea;
+	text-decoration:none;
+}
+.blueArrowDown{
+	padding-left:4px;
+	border:none;
+}
+/**********************************************
+回复框
+**********************************************/
+
+#UYreplySystem{
+  margin: 0 0 5px 65px;
+  position:relative;
+  background-color:#f2f2f2;
+  padding:10px 0;
+  border-top:1px solid #e9e9e9;
+  z-index:100;
+  position:relative;
+  width:585px;
+}
+.UYreplyContentWrapper{
+  float:left;
+}
+#UYreplyInput{
+  width:522px;
+  min-height:33px;
+  border:1px solid #BDC7D8;
+  font-size: 13px;
+  line-height: 18px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-y: auto;
+  color:#272727;
+  padding:3px;
+  resize:none;
+  line-height: 1.28;
+}
+
+.connecntReplyMenu{
+	background-color: #fff;
+	z-index:999999;
+    position: absolute;
+    right: 0;
+	*right: 12px;
+    top: 4px;
+    width: 105px;	
+}
+#UYSubmitReplyBTN{
+  width:103px;
+  height:20px;
+  border:1px solid #999999;
+  float:right;
+  margin:4px 0 0 0;
+  *margin-right:12px;
+  background:url(../images/replyCommentBTN.png)  0 0 no-repeat;
+  cursor:pointer;	
+  -moz-box-shadow:0 1px 0 #d9d9d9;
+  -webkit-box-shadow:0 1px 0 #d9d9d9;
+  box-shadow:0 1px 0 #d9d9d9;
+}
+#UYReplyLeftNumber {
+    color: #AAAAAA;
+    font-size: 14px;
+    position: absolute;
+    right: 135px;
+    top: 62px;
+	_top: 57px;
+    z-index: 10;
+}
+.closeReplyMenu{
+	cursor:pointer;
+	height:21px;
+	width:68px;
+	border:1px solid #3b5998;
+	border-bottom:none;
+	color:#fff;
+	text-align:left;
+	padding-left:35px;
+	font-size:12px;
+	display:block;
+	line-height:21px;
+	font-weight:bold;
+	background:url(../images/clickDownArrow.png) 85px 8px no-repeat #6d84b4;
+}
+.replyBTNText{
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 21px;
+    padding: 0 0 0 35px;
+}
+#UYSubmitReplyBTNConnected{
+  width:103px;
+  height:20px;
+  border:1px solid #29447e;
+  float:right;
+  margin:4px 0 0 0;
+  *margin-right:13px;
+  background-color:#5f78ab;
+  cursor:pointer;	
+  -moz-box-shadow:0 1px 0 #d9d9d9;
+  -webkit-box-shadow:0 1px 0 #d9d9d9;
+  box-shadow:0 1px 0 #d9d9d9;
+}
+.replyBTNTextConnected{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 21px;
+    padding: 0 0 0 35px;	
+}
+/*表情窗体样式*/
+#UYEmotionBTN{
+	width:35px;
+	height:17px;
+	color:#3a82ff;
+	position:absolute;
+	left:0;
+	bottom:-20px;
+	_bottom:26px;
+	border:1px solid #d2d2d2;
+	border-top:none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	z-index:10000;
+	font-size:12px;
+	padding:3px 0 0 25px;
+	background:url(../images/emotion.png) 6px 2px no-repeat #FFF;
+	cursor:pointer;
+	display:none;
+}
+#UYEmotionPane{
+	width:330px;
+	height:138px;
+	border:1px solid #ccd4eb;
+	background-color:#fff;
+	position:absolute;
+	z-index:200000;
+	left:-1px;
+	top:39px;
+	_top:42px;
+	display:none;
+	padding-top:2px;
+}
+.emotionNavWrapper a.currentEmotionTab{
+	color:#444;
+	font-weight:bold;	
+    padding: 5px 10px;
+	border:1px solid #B8D4E8;
+	border-bottom:none;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin:0 0 -1px 0;
+}
+.emotionNavWrapper a.unselectEmotionTab{
+	margin-right: 3px;
+    padding: 5px 10px;
+	color: #005EAC;
+	cursor:pointer;
+	margin:0 0 -1px 0;
+}
+.emotionNavWrapper{
+    border-bottom: 1px solid #B8D4E8;
+	height: 24px;
+    margin-bottom: 5px;
+    padding-top: 2px;
+}
+.emotionNavWrapper a{
+	font-size:12px;
+	background-color:#fff;
+	display:block;
+	width:60px;
+	float:left;
+	text-align:center;
+}
+.snEmotionWrapper{
+	float:left;
+	width:272px;
+}
+.emotion{
+	width:23px;
+	height:23px;
+	border:1px solid #92a4d9;
+	float:left;
+	margin-right:2px;
+	margin-bottom:2px;
+	cursor:pointer;
+}
+.emotion img{
+	width:17px;
+	height:17px;
+	padding:3px
+}
+#LEmotionNor{
+	width:32px;
+	height:32px;
+	float:left;
+	margin:0 0 0 2px;
+	border:1px solid #92a4d9;
+}
+.aliEmotionWrapper{
+	display:none;	
+	float:left;
+	width:272px;
+}
+#LEmotion{
+	width:48px;
+	height:48px;
+	float:left;
+	margin:0 0 0 2px;
+	border:1px solid #92a4d9;
+}
+#LEmotion{
+	display:none;	
+}
+/* 回复框窗体表情*/
+#UYEmotionReplyPane{
+	width:330px;
+	height:139px;
+	border:1px solid #ccd4eb;
+	background-color:#fff;
+	position:absolute;
+	z-index:20000;
+	left:70px;
+	_left:85px;
+	display:none;
+	padding-top:2px;
+	bottom:-105px;
+}
+
+#UYEmotionReplyBTN{
+	width:35px;
+	height:17px;
+	color:#3a82ff;
+	position:absolute;
+	left:75px;
+	bottom:17px;
+	_left:80px;
+	_bottom:21px;
+	border:1px solid #d2d2d2;
+	border-top:none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	z-index:10000;
+	font-size:12px;
+	padding:3px 0 0 25px;
+	background:url(../images/emotion.png) 6px 2px no-repeat #FFF;
+	cursor:pointer;
+	display:none;
+}
+#LEmotionReplyNor{
+	width:32px;
+	height:32px;
+	float:left;
+	margin:0 0 0 2px;
+	border:1px solid #92a4d9;
+}
+#LEmotionReply{
+	display:none;	
+}
+
+/********************
+内容为空时样式
+***********************/
+
+.UYEmptyBox{
+	padding:5px 0;
+}
+.UYEmtypWord{
+	
+	color: #979797;
+    font-size: 12px;
+    height: 18px;
+    margin: 0 auto;   
+    padding-top: 3px;
+	text-align:center;
+    width: 110px;
+}
+.UYEmtypBoxBottom{
+	height:1px;
+	background:url(../images/dotLine.png) 0 0 repeat-x;	
+	display:none;
+}
